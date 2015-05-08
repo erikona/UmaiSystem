@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inicioSesion.FXMLController">
+    <stylesheets>
+        <URL value="@fxml.css" />
+    </stylesheets>
+   <children>
+      <ImageView fx:id="imgUsu" fitHeight="103.0" fitWidth="90.0" layoutX="110.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lblUmai" layoutX="240.0" layoutY="62.0" text="Umai Otaku Deli">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtFieldUsu" alignment="CENTER" layoutX="155.0" layoutY="175.0" prefHeight="39.0" prefWidth="291.0" promptText="Usuario">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFieldContra" alignment="CENTER" layoutX="155.0" layoutY="241.0" prefHeight="39.0" prefWidth="291.0" promptText="Contraseña">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnIngresar" layoutX="247.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleButtonAction" onDragDetected="#handleButtonAction" prefHeight="25.0" prefWidth="107.0" text="Ingresar">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

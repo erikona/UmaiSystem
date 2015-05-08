@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="paneMain" prefHeight="532.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vistas.FXMLDocumentController">
+    <children>
+      <Button fx:id="btnImpTick" layoutX="411.0" layoutY="201.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" prefHeight="25.0" prefWidth="200.0" text="Imprimir ticket" />
+      <Button fx:id="btnDes" layoutX="411.0" layoutY="290.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" prefHeight="25.0" prefWidth="200.0" text="Aplicar descuento" />
+      <Button id="handleButtonAction" fx:id="btnCanVen" layoutX="411.0" layoutY="464.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" prefHeight="25.0" prefWidth="200.0" text="Cancelar venta" />
+      <Button fx:id="btnPiso" layoutX="411.0" layoutY="379.0" mnemonicParsing="false" onDragDetected="#handleButtonAction" prefHeight="25.0" prefWidth="200.0" text="Ver piso" />
+      <Label fx:id="lblUmai" layoutX="264.0" layoutY="37.0" prefHeight="101.0" prefWidth="295.0" text="Umai Otaku Deli" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font name="Arial" size="39.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgUmai" fitHeight="132.0" fitWidth="141.0" layoutX="100.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../GitHub/UmaiSystem/UmaiSystem.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblData" alignment="TOP_LEFT" layoutX="47.0" layoutY="199.0" prefHeight="290.0" prefWidth="337.0" style="-fx-background-color: #FFFFFF;" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="176.0" prefHeight="17.0" prefWidth="337.0" text="Datos de la venta:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

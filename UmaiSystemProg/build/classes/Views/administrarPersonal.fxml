@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.AdministrarPersonalController">
+   <children>
+      <Label layoutX="264.0" layoutY="55.0" prefHeight="17.0" prefWidth="233.0" text="Umai Otaku Deli">
+         <font>
+            <Font name="Arial Black" size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="100.0" fitWidth="152.0" layoutX="14.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../GitHub/UmaiSystem/UmaiSystem.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnAgregarPersonal" layoutX="60.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="217.0" text="Agregar Personal" />
+      <Button fx:id="btnEliminarPersonal" layoutX="347.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="217.0" text="Eliminar Personal" />
+      <Button fx:id="btnAtrasPersonal" layoutX="38.0" layoutY="347.0" mnemonicParsing="false" text="Atras" />
+      <Button fx:id="btnModificarPersonal" layoutX="56.0" layoutY="253.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="217.0" text="Modificar Personal" />
+      <Button fx:id="btnVisualizarPersonal" layoutX="347.0" layoutY="253.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="217.0" text="Visualizar Personal" />
+   </children>
+</AnchorPane>
