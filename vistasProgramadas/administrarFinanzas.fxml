@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="264.0" layoutY="55.0" prefHeight="17.0" prefWidth="233.0" text="Umai Otaku Deli">
@@ -21,6 +20,6 @@
       </ImageView>
       <Button fx:id="btnReportes" layoutX="204.0" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="217.0" text="Creación de reportes" />
       <Button fx:id="btnInformes" layoutX="204.0" layoutY="248.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="217.0" text="Creación de informes" />
-      <Button layoutX="38.0" layoutY="347.0" mnemonicParsing="false" text="Atras" />
+      <Button fx:id="btnAtras" layoutX="38.0" layoutY="347.0" mnemonicParsing="false" text="Atras" />
    </children>
 </AnchorPane>

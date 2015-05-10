@@ -13,7 +13,7 @@
             <Font name="Arial" size="36.0" />
          </font>
       </Label>
-      <TextField layoutX="210.0" layoutY="108.0" prefHeight="26.0" prefWidth="220.0" text="Receta a eliminar">
+      <TextField fx:id="txtBuscarReceta" layoutX="210.0" layoutY="108.0" prefHeight="26.0" prefWidth="220.0" text="Receta a eliminar">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
@@ -28,22 +28,22 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="315.0" layoutY="200.0" prefHeight="26.0" prefWidth="220.0" text="Nombre de receta">
+      <TextField fx:id="txtNombreReceta" layoutX="315.0" layoutY="200.0" prefHeight="26.0" prefWidth="220.0" text="Nombre de receta">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="66.0" layoutY="200.0" prefHeight="26.0" prefWidth="220.0" text="ID de receta">
+      <TextField fx:id="txtIdReceta" layoutX="66.0" layoutY="200.0" prefHeight="26.0" prefWidth="220.0" text="ID de receta">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="396.0" layoutY="294.0" mnemonicParsing="false" mouseTransparent="true" text="Eliminar">
+      <Button fx:id="btnElimReceta" layoutX="396.0" layoutY="294.0" mnemonicParsing="false" mouseTransparent="true" text="Eliminar">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="159.0" layoutY="294.0" mnemonicParsing="false" mouseTransparent="true" text="Cancelar">
+      <Button fx:id="btnCancelarReceta" layoutX="159.0" layoutY="294.0" mnemonicParsing="false" mouseTransparent="true" text="Cancelar">
          <font>
             <Font name="Arial" size="14.0" />
          </font>

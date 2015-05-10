@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="37.0" layoutY="29.0" text="Agregar receta">
@@ -15,57 +14,57 @@
             <Font name="Arial" size="36.0" />
          </font>
       </Label>
-      <TextField layoutX="56.0" layoutY="106.0" prefHeight="26.0" prefWidth="220.0" text="ID de receta">
+      <TextField fx:id="txtIdReceta" layoutX="56.0" layoutY="106.0" prefHeight="26.0" prefWidth="220.0" text="ID de receta">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="339.0" layoutY="106.0" prefHeight="26.0" prefWidth="220.0" text="Porcentaje de perdida">
+      <TextField fx:id="txtPerdida" layoutX="339.0" layoutY="106.0" prefHeight="26.0" prefWidth="220.0" text="Porcentaje de perdida">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="56.0" layoutY="165.0" prefHeight="26.0" prefWidth="220.0" text="Nombre de receta">
+      <TextField fx:id="txtNombreReceta" layoutX="56.0" layoutY="165.0" prefHeight="26.0" prefWidth="220.0" text="Nombre de receta">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="339.0" layoutY="165.0" prefHeight="26.0" prefWidth="220.0" text="Margen de error">
+      <TextField fx:id="txtError" layoutX="339.0" layoutY="165.0" prefHeight="26.0" prefWidth="220.0" text="Margen de error">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="56.0" layoutY="223.0" prefHeight="26.0" prefWidth="220.0" text="Tipo de receta">
+      <TextField fx:id="txtTipoReceta" layoutX="56.0" layoutY="223.0" prefHeight="26.0" prefWidth="220.0" text="Tipo de receta">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="339.0" layoutY="223.0" prefHeight="26.0" prefWidth="220.0" text="Dificultad">
+      <TextField fx:id="txtDificultad" layoutX="339.0" layoutY="223.0" prefHeight="26.0" prefWidth="220.0" text="Dificultad">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="56.0" layoutY="279.0" prefHeight="26.0" prefWidth="220.0" text="Tamaño de porción">
+      <TextField fx:id="txtPorcion" layoutX="56.0" layoutY="279.0" prefHeight="26.0" prefWidth="220.0" text="Tamaño de porción">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="339.0" layoutY="279.0" prefHeight="26.0" prefWidth="220.0" text="Tiempo de preparación">
+      <TextField fx:id="txtTiempo" layoutX="339.0" layoutY="279.0" prefHeight="26.0" prefWidth="220.0" text="Tiempo de preparación">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="137.0" layoutY="339.0" mnemonicParsing="false" mouseTransparent="true" text="Cancelar">
+      <Button fx:id="btnCancelarReceta" layoutX="137.0" layoutY="339.0" mnemonicParsing="false" mouseTransparent="true" text="Cancelar">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="419.0" layoutY="339.0" mnemonicParsing="false" mouseTransparent="true" text="Aceptar">
+      <Button fx:id="btnAceptarReceta" layoutX="419.0" layoutY="339.0" mnemonicParsing="false" mouseTransparent="true" text="Aceptar">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <TextField layoutX="339.0" layoutY="58.0" prefHeight="26.0" prefWidth="220.0" text="Número de porción">
+      <TextField fx:id="txtNumPorcion" layoutX="339.0" layoutY="58.0" prefHeight="26.0" prefWidth="220.0" text="Número de porción">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
