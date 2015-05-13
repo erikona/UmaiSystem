@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="678.0" prefWidth="416.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AgregarUsuariosController">
+   <children>
+      <GridPane layoutX="20.0" layoutY="89.0" prefHeight="577.0" prefWidth="376.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="32.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="74.0" minHeight="0.0" prefHeight="40.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="37.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="146.0" />
+            <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="51.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="56.0" minHeight="10.0" prefHeight="35.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="45.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="45.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="35.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="txtNomUser" alignment="CENTER" promptText="Nombre" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtTelUser" alignment="CENTER" promptText="Teléfono" GridPane.rowIndex="8">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtSueldoUser" alignment="CENTER" promptText="Sueldo" GridPane.rowIndex="10">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtPuntUser" alignment="CENTER" prefHeight="17.0" prefWidth="376.0" promptText="Puntuación" GridPane.rowIndex="11">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <ImageView fx:id="imgAvatar" fitHeight="136.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@imgAvatar" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </ImageView>
+            <Button fx:id="btnBuscarUser" mnemonicParsing="false" text="..." GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblBuscar" alignment="CENTER" prefHeight="17.0" prefWidth="142.0" wrapText="true" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets right="60.0" />
+               </GridPane.margin>
+            </Label>
+            <Button fx:id="btnAceptarU" mnemonicParsing="false" onAction="#btnAceptarUClick" text="Aceptar" GridPane.halignment="LEFT" GridPane.rowIndex="12">
+               <GridPane.margin>
+                  <Insets left="100.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnCancelarU" mnemonicParsing="false" text="Salir" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+               <GridPane.margin>
+                  <Insets right="100.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="lblMensajeAgregarUsuario" prefHeight="17.0" prefWidth="334.0" />
+            <ComboBox fx:id="cmbCodigoPostal" prefHeight="25.0" prefWidth="266.0" promptText="CodigoPostal" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox fx:id="cmbCiudad" prefHeight="25.0" prefWidth="266.0" promptText="Ciudad" GridPane.rowIndex="5" />
+            <ComboBox fx:id="cmbColonia" prefHeight="25.0" prefWidth="266.0" promptText="Colonia" GridPane.rowIndex="6" />
+            <TextField fx:id="txtCalle" alignment="CENTER" promptText="Calle" GridPane.rowIndex="7">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <ComboBox fx:id="cmbPermiso" prefHeight="25.0" prefWidth="266.0" promptText="Tipo permiso" GridPane.rowIndex="9" />
+            <PasswordField fx:id="txtContraUser" alignment="CENTER" promptText="contraseña" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </GridPane>
+      <Label fx:id="lblTitulo" layoutX="33.0" layoutY="14.0" prefHeight="72.0" prefWidth="273.0" text="Agregar Usuario">
+         <font>
+            <Font name="Arial" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
