@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="UmaiSystem.jnlp">
+  <information>
+    <title>UmaiSystem</title>
+    <vendor>antoniocg</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="UmaiSystem.jar" size="46819" download="eager" />
+    <jar href="lib/mysql-connector-java-3.0.17-ga-bin.jar" size="246317" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="UmaiSystem" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="umaisystem.UmaiSystem"  name="UmaiSystem" />
+  <update check="always"/>
+</jnlp>
