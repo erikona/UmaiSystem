@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdministrarProductoController">
+   <children>
+      <Label layoutX="177.0" layoutY="38.0" prefHeight="42.0" prefWidth="272.0" text="Umai Otaku Deli">
+         <font>
+            <Font name="Arial" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="84.0" fitWidth="62.0" layoutX="33.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../GitHub/UmaiSystem/UmaiSystem.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnAgregarProducto" layoutX="60.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnAgregarProductoClick" prefHeight="25.0" prefWidth="217.0" text="Agregar Producto" />
+      <Button fx:id="btnEliminarProducto" layoutX="347.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnEliminarProductoClick" prefHeight="25.0" prefWidth="217.0" text="Eliminar Prodcuto" />
+      <Button fx:id="btnAtrasProducto" layoutX="38.0" layoutY="347.0" mnemonicParsing="false" text="Atras" />
+      <Button fx:id="btnModificarProducto" layoutX="56.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnModificarProductoClick" prefHeight="25.0" prefWidth="217.0" text="Modificar Producto" />
+      <Button fx:id="btnVisualizarProducto" layoutX="347.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnVisualizarProductoClick" prefHeight="25.0" prefWidth="217.0" text="Visualizar Producto" />
+      <Label layoutX="133.0" layoutY="88.0" prefHeight="42.0" prefWidth="360.0" text="Administrar Productos">
+         <font>
+            <Font name="Arial" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

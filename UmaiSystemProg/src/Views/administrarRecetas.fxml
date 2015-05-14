@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.AdministrarRecetasController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdministrarRecetasController">
    <children>
       <Label layoutX="264.0" layoutY="55.0" prefHeight="17.0" prefWidth="233.0" text="Umai Otaku Deli">
          <font>
@@ -18,10 +18,10 @@
             <Image url="@../../../../../GitHub/UmaiSystem/UmaiSystem.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnAgregarReceta" layoutX="60.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="217.0" text="Agregar Receta" />
+      <Button fx:id="btnAgregarReceta" layoutX="60.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnAgregarRecetaClick" prefHeight="25.0" prefWidth="217.0" text="Agregar Receta" />
       <Button fx:id="btnEliminarReceta" layoutX="347.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="217.0" text="Eliminar Receta" />
       <Button fx:id="btnAtrasReceta" layoutX="38.0" layoutY="347.0" mnemonicParsing="false" text="Atras" />
       <Button fx:id="btnModificarReceta" layoutX="56.0" layoutY="253.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="217.0" text="Modificar Receta" />
-      <Button fx:id="btnVisualizarReceta" layoutX="347.0" layoutY="253.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="217.0" text="Visualizar Receta" />
+      <Button fx:id="btnVisualizarReceta" layoutX="347.0" layoutY="253.0" mnemonicParsing="false" onAction="#btnVisualizarRecetaClick" prefHeight="25.0" prefWidth="217.0" text="Visualizar Receta" />
    </children>
 </AnchorPane>

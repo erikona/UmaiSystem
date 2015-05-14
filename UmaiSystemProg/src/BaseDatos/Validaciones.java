@@ -20,8 +20,8 @@ public class Validaciones {
        return texto.matches("^\\s*[A-Za-zÑñáéíóúÁÉÍÓÚ]+\\s*$");
        //return texto.matches("^([a-zA-ZÑñáéíóúÁÉÍÓÚ]{2,}?){2,}+$");
    }
-   
-  
-    
+   public boolean EsTexto(String texto){
+       return texto.matches("^([A-Za-z]+\\s*)+$");
+   }
     
 }

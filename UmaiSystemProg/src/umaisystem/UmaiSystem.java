@@ -17,7 +17,11 @@ import javafx.stage.Stage;
  */
 public class UmaiSystem extends Application {
     
-    @Override
+    Stage stagePrincipal;
+        
+    public  Stage getStage(){
+        return stagePrincipal;
+    }
     public void start(Stage stage) throws Exception {
         Parent root;
         root = FXMLLoader.load(getClass().getResource("/Views/menuPrincipal.fxml"));
@@ -26,6 +30,8 @@ public class UmaiSystem extends Application {
         
         stage.setScene(scene);
         stage.show();
+        this.stagePrincipal=stage;
+       
     }
 
     /**

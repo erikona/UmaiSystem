@@ -26,7 +26,7 @@
       <Button fx:id="btnAdmPersonal" layoutX="279.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnAdmPersonalClick" prefHeight="25.0" prefWidth="188.0" text="Administrar Personal" />
       <Button fx:id="btnGame" layoutX="515.0" layoutY="212.0" mnemonicParsing="false" onAction="#btnGameClick" prefHeight="25.0" prefWidth="188.0" text="Gamificar Procesos" />
       <Button fx:id="btnAdmProveedores" layoutX="515.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnAdmProveedoresClick" prefHeight="25.0" prefWidth="188.0" text="Administrar Proveedores" />
-      <Button fx:id="btnAdmInventarios" layoutX="261.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnAdmInventariosClick" prefHeight="25.0" prefWidth="225.0" text="Administrar Inventario de Productos" />
+      <Button fx:id="btnAdmInventarios" layoutX="261.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnAdmInventariosClick" prefHeight="25.0" prefWidth="225.0" text="Administrar Productos" />
       <Button fx:id="btnAtras" defaultButton="true" layoutX="14.0" layoutY="486.0" mnemonicParsing="false" onAction="#btnAtrasClick" text="Atrás" />
    </children>
 </AnchorPane>

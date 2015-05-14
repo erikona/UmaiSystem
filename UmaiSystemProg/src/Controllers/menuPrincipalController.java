@@ -1,7 +1,10 @@
 package Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import umaisystem.UmaiSystem;
 /**
  *
  * @author antoniocg
@@ -52,6 +57,7 @@ public class menuPrincipalController implements Initializable  {
 
     @FXML // fx:id="btnAdmProveedores"
     private Button btnAdmProveedores; // Value injected by FXMLLoader
+   // private Object stage;
 
     @FXML
     void btnAdmVentasCLick(ActionEvent event) {
@@ -67,12 +73,36 @@ public class menuPrincipalController implements Initializable  {
 
     @FXML
     void btnAdmRecetasClick(ActionEvent event) {
-
+       
+     try {
+          Parent root = FXMLLoader.load(getClass().getResource("/Views/administrarRecetas.fxml"));
+         Scene scene = new Scene(root);
+         Stage stage=new Stage();
+        
+        stage.setScene(scene);
+        stage.show();
+         
+        } catch (IOException e) {
+            e.printStackTrace();
+        }    
+    
     }
 
+    
     @FXML
     void btnAdmPersonalClick(ActionEvent event) {
-
+try {
+         Parent root = FXMLLoader.load(getClass().getResource("/Views/administrarPersonal.fxml"));
+         Scene scene = new Scene(root);
+         Stage stage=new Stage();
+        
+        stage.setScene(scene);
+        stage.show();
+       
+        } catch (IOException e) {
+            e.printStackTrace();
+        }    
+    
     }
 
     @FXML
@@ -87,7 +117,17 @@ public class menuPrincipalController implements Initializable  {
 
     @FXML
     void btnAdmInventariosClick(ActionEvent event) {
-
+        try {
+          Parent root = FXMLLoader.load(getClass().getResource("/Views/administrarProducto.fxml"));
+         Scene scene = new Scene(root);
+         Stage stage=new Stage();
+        
+        stage.setScene(scene);
+        stage.show();
+         
+        } catch (IOException e) {
+            e.printStackTrace();
+        } 
     }
 
     @FXML
