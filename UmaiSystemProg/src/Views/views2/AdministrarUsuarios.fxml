@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: d1fbda;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="btnVisualizarReceta" layoutX="410.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnVisualizarRecetaClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Visualizar Receta" />
-      <Button fx:id="btnModificarReceta" layoutX="207.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnModificarRecetaClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Modificar Receta" />
-      <Button fx:id="btnEliminarReceta" layoutX="410.0" layoutY="169.0" mnemonicParsing="false" onAction="#btnEliminarRecetaClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Eliminar Receta" />
-      <Button fx:id="btnAgregarReceta" layoutX="211.0" layoutY="169.0" mnemonicParsing="false" onAction="#btnAgregarRecetaClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Agregar Receta" />
-      <Label layoutX="225.0" layoutY="46.0" text="Administrar Recetas" textAlignment="CENTER" textFill="#ff35a7">
+      <Button fx:id="btnVisualizarUsuario" layoutX="410.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnVisualizarUsuarioClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Visualizar Usuarios" />
+      <Button fx:id="btnModificarUsuario" layoutX="207.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnModificarUsuarioClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Modificar Usuarios" />
+      <Button fx:id="btnEliminarUsuario" layoutX="410.0" layoutY="169.0" mnemonicParsing="false" onAction="#btnEliminarUsuarioClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Eliminar Usuarios" />
+      <Button fx:id="btnAgregarUsuario" layoutX="211.0" layoutY="169.0" mnemonicParsing="false" onAction="#btnAgregarUsuarioClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Agregar Usuarios" />
+      <Label layoutX="211.0" layoutY="43.0" text="Administrar Usuarios" textAlignment="CENTER" textFill="#ff35a7">
          <font>
             <Font name="Arial" size="36.0" />
          </font>
@@ -40,7 +40,7 @@
                         <Insets />
                      </opaqueInsets>
                   </TextField>
-                  <Hyperlink fx:id="linkAdminVentas" layoutX="20.0" layoutY="133.0" onAction="#linkAdminVentasClick" text="Administrar ventas">
+                  <Hyperlink fx:id="linkAdminVentas" layoutX="20.0" layoutY="133.0" onAction="#linkAdminVentas" text="Administrar ventas">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -55,12 +55,12 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Hyperlink>
-                  <Hyperlink fx:id="linkAdminProv" layoutX="1.0" layoutY="322.0" onAction="#linkAdminUsuariosClick" text="Administrar Proveedores">
+                  <Hyperlink fx:id="linkAdminProv" layoutX="1.0" layoutY="322.0" onAction="#linkAdminProvClick" text="Administrar Proveedores">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Hyperlink>
-                  <Hyperlink fx:id="linkAdminProductos" layoutX="8.0" layoutY="285.0" onAction="#linkAdminUsuariosClick" text="Administrar Productos">
+                  <Hyperlink fx:id="linkAdminProductos" layoutX="8.0" layoutY="285.0" onAction="#linkAdminProductosClick" text="Administrar Productos">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
