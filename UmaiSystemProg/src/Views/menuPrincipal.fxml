@@ -22,7 +22,7 @@
       </Label>
       <Button fx:id="btnAdmVentas" layoutX="37.0" layoutY="212.0" mnemonicParsing="false" onAction="#btnAdmVentasCLick" prefHeight="25.0" prefWidth="188.0" text="Administrar Ventas" />
       <Button fx:id="btnAdmFinanzas" layoutX="37.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnAdmFinanzasClick" prefHeight="25.0" prefWidth="188.0" text="Administrar Finanzas" />
-      <Button fx:id="btnAdmRecetas" layoutX="279.0" layoutY="212.0" mnemonicParsing="false" onAction="#btnAdmRecetasClick" prefHeight="25.0" prefWidth="188.0" text="Administrar Recetas" />
+      <Button fx:id="btnAdmRecetas" layoutX="279.0" layoutY="212.0" mnemonicParsing="false" onAction="#btnAdmRecetasClick" prefHeight="25.0" prefWidth="188.0" style="-fx-background-color: d1fbda; -fx-border-width: 5; -fx-background-radius: 40px;" text="Administrar Recetas" />
       <Button fx:id="btnAdmPersonal" layoutX="279.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnAdmPersonalClick" prefHeight="25.0" prefWidth="188.0" text="Administrar Personal" />
       <Button fx:id="btnGame" layoutX="515.0" layoutY="212.0" mnemonicParsing="false" onAction="#btnGameClick" prefHeight="25.0" prefWidth="188.0" text="Gamificar Procesos" />
       <Button fx:id="btnAdmProveedores" layoutX="515.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnAdmProveedoresClick" prefHeight="25.0" prefWidth="188.0" text="Administrar Proveedores" />
