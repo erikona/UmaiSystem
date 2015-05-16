@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: d1fbda;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="btnVisualizarReceta" layoutX="410.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnVisualizarRecetaClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Visualizar Receta" />
-      <Button fx:id="btnModificarReceta" layoutX="207.0" layoutY="247.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Modificar Receta" />
-      <Button fx:id="btnEliminarReceta" layoutX="410.0" layoutY="169.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Eliminar Receta" />
-      <Button fx:id="btnAgregarReceta" layoutX="211.0" layoutY="169.0" mnemonicParsing="false" onAction="#btnAgregarRecetaClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="Agregar Receta" />
-      <Label layoutX="225.0" layoutY="46.0" text="Administrar Recetas" textAlignment="CENTER" textFill="#ff35a7">
+      <Button layoutX="410.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnVisualizarRecetaClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="4" />
+      <Button layoutX="207.0" layoutY="247.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="2" />
+      <Button layoutX="410.0" layoutY="169.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="3" />
+      <Button layoutX="211.0" layoutY="169.0" mnemonicParsing="false" onAction="#btnAgregarRecetaClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #ffffc5;" text="1" />
+      <Label layoutX="225.0" layoutY="46.0" text="Nombre Vista" textAlignment="CENTER" textFill="#ff35a7">
          <font>
             <Font name="Arial" size="36.0" />
          </font>
@@ -74,7 +75,7 @@
                      <graphic>
                         <ImageView fx:id="buttonSplitOcultar" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                            <image>
-                              <Image url="@../img/arrow-down.png" />
+                              <Image url="@img/arrow-down.png" />
                            </image>
                         </ImageView>
                      </graphic>
