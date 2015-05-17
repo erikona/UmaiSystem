@@ -8,36 +8,36 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: d1fbda;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="778.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="898.0" layoutY="415.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="251.0" style="-fx-background-color: #ffffc5;" text="4">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Button>
-      <Button layoutX="477.0" layoutY="415.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="251.0" style="-fx-background-color: #ffffc5;" text="2">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Button>
-      <Button layoutX="898.0" layoutY="260.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="251.0" style="-fx-background-color: #ffffc5;" text="3">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Button>
-      <Button layoutX="470.0" layoutY="260.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="251.0" style="-fx-background-color: #ffffc5;" text="1">
+      <Button layoutX="898.0" layoutY="462.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="251.0" text="4">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
       </Button>
-      <Label layoutX="680.0" layoutY="94.0" text="Nombre Vista" textAlignment="CENTER" textFill="#ff35a7">
+      <Button layoutX="493.0" layoutY="462.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="251.0" text="2">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="898.0" layoutY="276.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="251.0" text="3">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="486.0" layoutY="276.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="251.0" text="1">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="606.0" layoutY="102.0" text="Nombre Vista" textAlignment="CENTER">
          <font>
             <Font name="Arial" size="48.0" />
          </font>
       </Label>
-      <SplitPane dividerPositions="0.9767441860465116" layoutY="-1.0" prefHeight="804.0" prefWidth="349.0" style="-fx-background-color: #C4EFC7;">
+      <SplitPane dividerPositions="0.9767441860465116" layoutY="-1.0" prefHeight="776.0" prefWidth="349.0">
          <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="809.0" prefWidth="348.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="762.0" prefWidth="335.0">
                <children>
                   <Label contentDisplay="CENTER" layoutX="56.0" layoutY="48.0" text="Umai System">
                      <font>
@@ -87,7 +87,7 @@
                         <Font name="Arial" size="24.0" />
                      </font>
                   </Hyperlink>
-                  <Button fx:id="btnSplit" layoutX="248.0" layoutY="734.0" mnemonicParsing="false" onAction="#btnSplitClick" prefHeight="54.0" prefWidth="73.0">
+                  <Button fx:id="btnSplit" layoutX="246.0" layoutY="682.0" mnemonicParsing="false" onAction="#btnSplitClick" prefHeight="54.0" prefWidth="73.0">
                      <graphic>
                         <ImageView fx:id="btnSplit" fitHeight="50.0" fitWidth="53.0" onDragDetected="#btnSplitClick" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                            <image>
