@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="778.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="btnVisualizarProducto" layoutX="898.0" layoutY="462.0" mnemonicParsing="false" onAction="#btnVisualizarProductoClick" prefHeight="60.0" prefWidth="251.0" text="Visualizar Producto">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnModificarProducto" layoutX="493.0" layoutY="462.0" mnemonicParsing="false" onAction="#btnModificarProductoClick" prefHeight="60.0" prefWidth="251.0" text="Modificar Producto">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnEliminarProducto" layoutX="898.0" layoutY="276.0" mnemonicParsing="false" onAction="#btnEliminarProductoClick" prefHeight="60.0" prefWidth="251.0" text="Eliminar Producto">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAgregarProducto" layoutX="486.0" layoutY="276.0" mnemonicParsing="false" onAction="#btnAgregarProductoClick" prefHeight="60.0" prefWidth="251.0" text="Agregar Producto">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="606.0" layoutY="102.0" text="Administrar Productos" textAlignment="CENTER">
+         <font>
+            <Font name="Arial" size="48.0" />
+         </font>
+      </Label>
+      <SplitPane dividerPositions="0.9767441860465116" layoutY="-1.0" prefHeight="776.0" prefWidth="349.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="762.0" prefWidth="335.0">
+               <children>
+                  <Label contentDisplay="CENTER" layoutX="56.0" layoutY="48.0" text="Umai System">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="24.0" layoutY="136.0" text="Administrador:">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtNombreUsuario" alignment="CENTER" disable="true" layoutX="63.0" layoutY="167.0" prefHeight="26.0" prefWidth="201.0" text="Nombre">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
+                  <Hyperlink fx:id="linkAdminVentas" layoutX="63.0" layoutY="236.0" onAction="#linkAdminVentasClick" text="Administrar ventas">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="linkAdminFinanzas" layoutX="54.0" layoutY="356.0" onAction="#linkAdminFinanzasClick" text="Administrar finanzas">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="linkAdminRecetas" layoutX="57.0" layoutY="299.0" onAction="#linkAdminRecetasClick" text="Administrar recetas">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="linkAdminProv" layoutX="31.0" layoutY="545.0" onAction="#linkAdminProvClick" text="Administrar Proveedores">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="linkAdminProductos" layoutX="45.0" layoutY="476.0" onAction="#linkAdminProductosClick" text="Administrar Productos">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Hyperlink>
+                  <Hyperlink fx:id="linkAdminUsuarios" layoutX="54.0" layoutY="418.0" onAction="#linkAdminUsuariosClick" text="Administrar usuarios">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Hyperlink>
+                  <Button fx:id="btnSplit" layoutX="246.0" layoutY="682.0" mnemonicParsing="false" onAction="#btnSplitClick" prefHeight="54.0" prefWidth="73.0">
+                     <graphic>
+                        <ImageView fx:id="btnSplit" fitHeight="50.0" fitWidth="53.0" onDragDetected="#btnSplitClick" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                           <image>
+                              <Image url="@img/arrow-down.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+         </items>
+      </SplitPane>
+   </children>
+</Pane>
