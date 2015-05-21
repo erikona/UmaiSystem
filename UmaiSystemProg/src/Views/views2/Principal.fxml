@@ -9,15 +9,15 @@
 
 <BorderPane maxHeight="568.0" maxWidth="1024.0" minHeight="480.0" minWidth="640.0" prefHeight="568.0" prefWidth="1024.0" style="-fx-background-color: #F7F4F4;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <left>
-      <SplitPane prefHeight="471.0" prefWidth="207.0" style="-fx-background-color: #F7F4F4;" BorderPane.alignment="CENTER">
+      <SplitPane style="-fx-background-color: #F7F4F4;" BorderPane.alignment="TOP_LEFT">
          <items>
-            <AnchorPane maxHeight="568.0" minHeight="0.0" minWidth="0.0" prefHeight="568.0" prefWidth="206.0">
+            <AnchorPane maxHeight="568.0" minHeight="0.0" minWidth="0.0" prefHeight="533.0" prefWidth="205.0">
                <children>
-                  <ScrollPane layoutX="-10.0" layoutY="-3.0" prefHeight="473.0" prefWidth="208.0" style="-fx-background-color: #F7F4F4;">
+                  <ScrollPane layoutX="-1.0" prefHeight="478.0" prefWidth="208.0" style="-fx-background-color: #F7F4F4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="197.0" style="-fx-background-color: #F7F4F4;">
                            <children>
-                              <Accordion prefHeight="471.0" prefWidth="202.0">
+                              <Accordion prefHeight="471.0" prefWidth="202.0" style="-fx-background-color: #428BCA;" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
                                 <panes>
                                   <TitledPane animated="false" text="Administrar Usuarios">
                                     <content>
@@ -197,7 +197,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Label text="Nombre Vista" textFill="#a10866">
+            <Label fx:id="lblNomVista" text="Nombre Vista" textFill="#a10866">
                <font>
                   <Font name="Arial" size="14.0" />
                </font>

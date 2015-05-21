@@ -14,9 +14,6 @@
             <GridPane alignment="CENTER">
                <children>
                   <FlowPane alignment="CENTER_RIGHT" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Button fx:id="btnBuscarTodosProd" alignment="CENTER" mnemonicParsing="false" onAction="#btnBuscarTodosProdclick" prefHeight="25.0" prefWidth="120.0" text="Buscar Todos" />
-                     </children>
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -25,9 +22,6 @@
                      </GridPane.margin>
                   </FlowPane>
                   <FlowPane alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-                     <children>
-                        <Button fx:id="btnBusquedaPerProd" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnBusquedaPerProdClick" prefHeight="25.0" prefWidth="197.0" text="Busqueda Personalizada" />
-                     </children>
                      <GridPane.margin>
                         <Insets left="50.0" />
                      </GridPane.margin>
