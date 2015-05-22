@@ -30,7 +30,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtNomUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtNomUsuarioClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtNomUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -44,7 +44,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtContraseñaUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtContraseñaUsuClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtContraseñaUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -58,7 +58,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCalleUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtCalleUsuClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtCalleUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -72,7 +72,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtColoniaUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtColoniaUsuClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtColoniaUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -86,7 +86,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCiudadUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtCiudadUsuClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtCiudadUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -100,7 +100,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCpUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtCpUsuClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtCpUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -114,7 +114,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtTelefonoUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtTelefonoUsuClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtTelefonoUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -128,7 +128,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtSueldoUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtSueldoUsuClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtSueldoUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -142,7 +142,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPuntosUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtPuntosUsuClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtPuntosUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -156,7 +156,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPermisoUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtPermisoUsu" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtPermisoUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -170,7 +170,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtContratoUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtContratoUsuClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtContratoUsu" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
