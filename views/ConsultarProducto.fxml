@@ -40,7 +40,7 @@
             </TextField>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Label text="Id producto">
+                  <Label text="Nombre producto">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -48,13 +48,10 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtIdProd" alignment="CENTER" disable="true" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtIdProdClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtIdProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtIdProdClick" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -72,9 +69,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -109,9 +103,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -125,14 +116,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtUnidadProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtUnidadProdClick" prefHeight="26.0" prefWidth="250.0">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </TextField>
+                  <ComboBox fx:id="cboxUnidadProd" prefWidth="250.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
@@ -149,15 +133,12 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
-                  <Label text="Id proveedor">
+                  <Label text="Nombre proveedor">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -165,14 +146,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtIdProv" alignment="CENTER" disable="true" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtIdProvClick" prefHeight="26.0" prefWidth="250.0">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </TextField>
+                  <ComboBox fx:id="cboxNombreProv" prefWidth="250.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER_LEFT" maxWidth="100.0" minWidth="100.0" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="5" />

@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane layoutX="178.0" layoutY="87.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -74,9 +73,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -91,9 +87,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -108,9 +101,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -125,9 +115,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -142,9 +129,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -159,9 +143,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -176,9 +157,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -193,9 +171,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -210,9 +185,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -227,9 +199,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -244,9 +213,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -261,9 +227,6 @@
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>

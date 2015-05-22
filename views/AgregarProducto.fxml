@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -21,7 +20,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtNombreProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtNombreProdClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtNombreProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -41,7 +40,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextArea fx:id="txtDescProd" maxHeight="60.0" maxWidth="250.0" minHeight="60.0" minWidth="150.0" onDragDetected="#txtDescProdClick" prefHeight="60.0" prefWidth="150.0">
+                  <TextArea fx:id="txtDescProd" maxHeight="60.0" maxWidth="250.0" minHeight="60.0" minWidth="150.0" prefHeight="60.0" prefWidth="150.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -58,7 +57,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtCantProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtCantProdClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtCantProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -78,14 +77,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtUnidadProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtUnidadProdClick" prefHeight="26.0" prefWidth="250.0">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </TextField>
+                  <ComboBox fx:id="cboxUnidadProd" prefWidth="250.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
@@ -98,7 +90,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtPrecioProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtPrecioProdClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtPrecioProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -110,7 +102,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Label text="Id proveedor">
+                  <Label text="Nombre proveedor">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -118,14 +110,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtIdProv" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtIdProvClick" prefHeight="26.0" prefWidth="250.0">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </TextField>
+                  <ComboBox fx:id="cboxNombreProv" prefWidth="250.0" />
                </children>
             </VBox>
             <VBox alignment="CENTER_LEFT" maxWidth="100.0" minWidth="100.0" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">

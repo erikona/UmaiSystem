@@ -54,13 +54,10 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtNombreProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtNombreProdClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtNombreProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
@@ -74,13 +71,10 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtIdProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" onAction="#txtIdProdClick" prefHeight="26.0" prefWidth="250.0">
+                  <TextField fx:id="txtIdProd" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="100.0" prefHeight="26.0" prefWidth="250.0">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
                   </TextField>
                </children>
             </VBox>
