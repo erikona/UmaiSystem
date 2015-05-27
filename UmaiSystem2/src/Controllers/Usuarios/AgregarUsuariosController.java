@@ -19,7 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
@@ -30,47 +30,58 @@ import javafx.scene.control.TextField;
 public class AgregarUsuariosController implements Initializable {
     @FXML
     private TextField txtNomUsu;
-    @FXML
-    private TextField txtContraseñaUsu;
-    @FXML
-    private TextField txtCalleUsu;
-    @FXML
-    private TextField txtColoniaUsu;
-    @FXML
-    private TextField txtCiudadUsu;
-    @FXML
-    private TextField txtCpUsu;
+    
     @FXML
     private TextField txtTelefonoUsu;
     @FXML
     private TextField txtSueldoUsu;
     @FXML
     private TextField txtPuntosUsu;
-    @FXML
-    private TextField txtPermisoUsu;
-    @FXML
-    private TextField txtContratoUsu;
+    
     @FXML
     private Label lblError;
     @FXML
     private Button btnCancelar;
     @FXML
     private Button btnAceptar;
+    @FXML
+    private PasswordField txtContra;
+    @FXML
+    private ComboBox<String> cbCodigoPostal;
+    @FXML
+    private ComboBox<String> cbCiudad;
+    @FXML
+    private ComboBox<String> cbColonia;
+    @FXML
+    private TextField txtCalle;
+    @FXML
+    private ComboBox<Integer> cbPermiso;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        Models.CRUD cr= new Models.CRUD();
+       Models.CRUD cr= new Models.CRUD();
           ResultSet resul=null;  
-            resul=(ResultSet) cr.Consulta("Select idUsu,nombreUsu from usuarios");
-        
+            resul=(ResultSet) cr.Consulta("Select CodigoPostal from CodigosPostales where Estado='Jalisco'");
+            
+            try {
+                  
+                while(resul.next()){
+                        cbCodigoPostal.getItems().add(resul.getString(1));
+                }   
+                resul.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AgregarUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+            cbPermiso.getItems().addAll(1,2,3);
         txtNomUsu.textProperty().addListener(new ChangeListener<String>(){
         
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("/^[a-z0-9_-]{3,15}$/")){
+            if(newValue.matches("^[A-Za-z]*(\\s?[A-Za-z]*)*") && newValue.length()<30){
                 txtNomUsu.setText(newValue);
             }
             else
@@ -79,62 +90,39 @@ public class AgregarUsuariosController implements Initializable {
             }
             }
         });
-        txtContraseñaUsu.textProperty().addListener(new ChangeListener<String>() {
+        txtContra.textProperty().addListener(new ChangeListener<String>() {
 
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-           if(newValue.matches("/(^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d){4,10}.+$)/")){
-                txtContraseñaUsu.setText(newValue);
+           if(newValue.matches(".*") && newValue.length()<30){
+                txtContra.setText(newValue);
             }
             else
             {
-                txtContraseñaUsu.setText(oldValue);
+                txtContra.setText(oldValue);
             }
             }
         });
         
-        txtCalleUsu.textProperty().addListener(new ChangeListener<String>(){
+        txtCalle.textProperty().addListener(new ChangeListener<String>(){
 
              @Override
              public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue.matches("[A-Aa-z]*\\s*[A-Za-z]*")){
-                    txtCalleUsu.setText(newValue);
+                if(newValue.matches("([A-Za-z0-9]*\\s?)*#?[A-Za-z0-9]*") && newValue.length()<50){
+                    
+                    txtCalle.setText(newValue);
                 }else{
-                    txtCalleUsu.setText(oldValue);
+                    txtCalle.setText(oldValue);
                 }
              }
             
         });
-        txtColoniaUsu.textProperty().addListener(new ChangeListener<String>(){
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue.matches("[A-Aa-z]*\\s*[A-Za-z]*")){
-                    txtColoniaUsu.setText(newValue);
-                }else{
-                    txtColoniaUsu.setText(oldValue);
-                }
-             }
-        });
-        txtCiudadUsu.textProperty().addListener(new ChangeListener<String>(){
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue.matches("[A-Aa-z]*\\s*[A-Za-z]*")){
-                    txtCiudadUsu.setText(newValue);
-                }else{
-                    txtCiudadUsu.setText(oldValue);
-                }
-             }
-        });
-        txtCpUsu.textProperty().addListener(new ChangeListener<String>(){
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue.matches("^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$")){
-                    txtCpUsu.setText(newValue);
-                }else{
-                    txtCpUsu.setText(oldValue);
-                }
-             }
-        });
+        
+        
+        
         txtTelefonoUsu.textProperty().addListener(new ChangeListener<String>(){
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue.matches("^[0-9]{2,3}-? ?[0-9]{10}$")){
+                if(newValue.matches("[0-9]*")&& newValue.length()<20){
                     txtTelefonoUsu.setText(newValue);
                 }else{
                     txtTelefonoUsu.setText(oldValue);
@@ -143,7 +131,7 @@ public class AgregarUsuariosController implements Initializable {
         });
         txtSueldoUsu.textProperty().addListener(new ChangeListener<String>(){
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue.matches("[0-9]*")){
+                if(newValue.matches("[0-9]*") ){
                     txtSueldoUsu.setText(newValue);
                 }else{
                     txtSueldoUsu.setText(oldValue);
@@ -159,24 +147,7 @@ public class AgregarUsuariosController implements Initializable {
                 }
              }
         });
-        txtPermisoUsu.textProperty().addListener(new ChangeListener<String>(){
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue.matches("[A-Aa-z]*\\s*[A-Za-z]*")){
-                    txtPermisoUsu.setText(newValue);
-                }else{
-                    txtPermisoUsu.setText(oldValue);
-                }
-             }
-        });
-        txtContratoUsu.textProperty().addListener(new ChangeListener<String>(){
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue.matches("[A-Aa-z]*\\s*[A-Za-z]*")){
-                    txtContratoUsu.setText(newValue);
-                }else{
-                    txtContratoUsu.setText(oldValue);
-                }
-             }
-        });
+     
     }   
     @FXML
     private void btnCancelarClick(ActionEvent event) {
@@ -186,23 +157,23 @@ public class AgregarUsuariosController implements Initializable {
     private void btnAceptarClick(ActionEvent event) 
     {
         Models.ModelUsuarios usuarios=new Models.ModelUsuarios();
-        String mensageE="Campos: ";
+        String mensageE="Campo: ";
           if(txtNomUsu.getText().equals("")){
               mensageE+="Nombre";
           }
-          if(txtContraseñaUsu.getText().equals("")){
+          if(txtContra.getText().equals("")){
               mensageE+=", Contraseña";
           }
-          if(txtCalleUsu.getText().equals("")){
+          if(txtCalle.getText().equals("")){
               mensageE+=", Calle";
           }
-          if(txtColoniaUsu.getText().equals("")){
+          if(cbColonia.getValue()==null){
               mensageE+=", Colonia";
           }
-         if(txtCiudadUsu.getText().equals("")){
+         if(cbCiudad.getValue()==null){
               mensageE+=", Ciudad";
           }
-         if(txtCpUsu.getText().equals("")){
+         if(cbCodigoPostal.getValue()==null){
               mensageE+=", C.P.";
           }
          if(txtTelefonoUsu.getText().equals("")){
@@ -214,46 +185,170 @@ public class AgregarUsuariosController implements Initializable {
          if(txtPuntosUsu.getText().equals("")){
               mensageE+=", Puntuación";
           }
-         if(txtPermisoUsu.getText().equals("")){
+         if(cbPermiso.getValue()==null){
               mensageE+=", Permiso";
           }
-         if(txtContratoUsu.getText().equals("")){
-              mensageE+=", Contrato";
-          }
-          mensageE+=" vacios";
+         
+          mensageE+=" vacio";
           lblError.setText(mensageE);
+          lblError.setVisible(true);
            if(   !txtNomUsu.getText().equals("")
-           && !txtContraseñaUsu.getText().equals("")
-           && !txtCalleUsu.getText().equals("")
-           && !txtColoniaUsu.getText().equals("")
-           && !txtCiudadUsu.getText().equals("")
-           && !txtCpUsu.getText().equals("")
+           && !txtContra.getText().equals("")
+           && !txtCalle.getText().equals("")
+           && cbColonia.getValue()!=null
+           && cbCiudad.getValue()!=null
+           && cbCodigoPostal.getValue()!=null
            && !txtTelefonoUsu.getText().equals("")
            && !txtSueldoUsu.getText().equals("")
            && !txtPuntosUsu.getText().equals("") 
-           && !txtPermisoUsu.getText().equals("")
-           && !txtContratoUsu.getText().equals("")
+           && cbPermiso.getValue()!=null
+           
           )
         {
         usuarios.setNombreUsu(txtNomUsu.getText());
-        usuarios.setContraseñaUsu(txtContraseñaUsu.getText());
-        usuarios.setCalleUsu(txtCalleUsu.getText());
-        usuarios.setColoUsu(txtColoniaUsu.getText());
-        usuarios.setCiudUsu(txtCiudadUsu.getText());
-        usuarios.setCodigoPostal(txtCpUsu.getText());
-        usuarios.setTelefonoUsu(Integer.parseInt(txtTelefonoUsu.getText()));
+        usuarios.setContraseñaUsu(txtContra.getText());
+        usuarios.setCalleUsu(txtCalle.getText());
+        usuarios.setColoUsu( cbColonia.getValue());
+        usuarios.setCiudUsu(cbCiudad.getValue());
+        usuarios.setCodigoPostal(cbCodigoPostal.getValue());
+        usuarios.setTelefonoUsu(txtTelefonoUsu.getText());
         usuarios.setSueldoUsu(Integer.parseInt(txtSueldoUsu.getText()));
         usuarios.setPuntosUsu(Integer.parseInt(txtPuntosUsu.getText()));
-        usuarios.setTipoPermiso(txtPermisoUsu.getText());
-        int idProv=1;
-         Models.CRUD cr=new Models.CRUD();
-            ResultSet rs=null;
+        usuarios.setTipoPermiso(cbPermiso.getValue());
+        
+           // System.out.println("que tiene codigo postal  "+cbCodigoPostal.getValue());
             
-            
-            
-       
-       usuarios.agregarUsuarios();
+            usuarios.agregarUsuarios();
+            lblError.setText("Agregado Correcto");
+            txtNomUsu.setText("");
+            txtContra.setText("");
+            txtCalle.setText("");
+            cbColonia.setValue("");
+            cbCiudad.setValue("");
+            cbCodigoPostal.setValue("");
+            txtTelefonoUsu.setText("");
+            txtSueldoUsu.setText("");
+            txtPuntosUsu.setText("");
+            cbPermiso.setValue(0);
     }
+    }
+
+    @FXML
+    private void txtNomUsuarioClick(ActionEvent event) {
+    }
+
+
+    @FXML
+    private void txtTelefonoUsuClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void txtSueldoUsuClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void txtPuntosUsuClick(ActionEvent event) {
+    
+    
+    }
+
+    @FXML
+    private void eventCodigoPostal(ActionEvent event) {
+        
+        if(cbCodigoPostal.getValue()!=null){
+            Models.CRUD cr= new Models.CRUD();
+          ResultSet resul=null;  
+            resul=(ResultSet) cr.Consulta("Select Municipio from CodigosPostales where CodigoPostal='"+cbCodigoPostal.getValue() +"'");
+            cbCiudad.getItems().clear();
+            try {
+                  
+                while(resul.next()){
+                      cbCiudad.getItems().add(resul.getString(1));
+                        cbCiudad.setValue(resul.getString(1));
+                }
+                resul.close();
+               AñadirColonias();
+            } catch (SQLException ex) {
+                Logger.getLogger(AgregarUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+        }
     }
     
+    
+    public void AñadirColonias(){
+        if(cbCiudad.getValue()!=null){
+            Models.CRUD cr= new Models.CRUD();
+          ResultSet resul=null;  
+            resul=(ResultSet) cr.Consulta("Select Colonia from CodigosPostales where Municipio='"+cbCiudad.getValue() +"'");
+            String [] Colon=null;
+            try {
+                   cbColonia.getItems().clear();
+                while(resul.next()){
+                    String temp=resul.getString(1);
+                    Colon=separarColonias(temp);
+                   
+                    //cbColonia.getItems().add(resul.getString(1));
+                    cbColonia.setValue(Colon[0]);
+                for (int i = 0; i <Colon.length; i++) {
+                    cbColonia.getItems().add(Colon[i]);
+                }
+                }
+                
+                resul.close();
+                
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(AgregarUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+        }
+    }
+
+    @FXML
+    private void eventCiudad(ActionEvent event) {
+        /*
+        if(cbCiudad.getValue()!=null){
+            Models.CRUD cr= new Models.CRUD();
+          ResultSet resul=null;  
+            resul=(ResultSet) cr.Consulta("Select Colonia from CodigosPostales where Municipio='"+cbCiudad.getValue() +"'");
+            
+            try {
+                  
+                while(resul.next()){
+                    String temp=resul.getString(1);
+                    
+                        cbColonia.getItems().add(resul.getString(1));
+                }   
+                resul.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AgregarUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+        }
+                */
+    }
+
+    @FXML
+    private void eventColonia(ActionEvent event) {
+        
+        
+    }
+
+    @FXML
+    private void eventPermiso(ActionEvent event) {
+    }
+
+     public static String[] separarColonias(String texto)
+    {
+        java.util.StringTokenizer tokens = new java.util.StringTokenizer(texto,";",false);
+        String separados[]=new String[tokens.countTokens()];
+        int i=0;
+        while (tokens.hasMoreTokens()) 
+        {
+            separados[i]=tokens.nextToken();
+            i++;
+        }
+        return separados;
+    }
 }

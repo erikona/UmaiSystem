@@ -80,7 +80,7 @@ public class MenuPrincipalController implements Initializable {
 
     @FXML
     private void btnModificarUsuarioClick(ActionEvent event) {
-    cs.openNewWindow("/Views/Usuarios/ModificarUsuario.fxml"); 
+    cs.openNewWindow("/Views/Usuarios/ModificarUsuario2.fxml"); 
     }
 
     @FXML

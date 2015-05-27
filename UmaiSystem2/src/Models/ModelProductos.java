@@ -9,37 +9,34 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
 
 /**
  *
- * @author lalo
+ * @author
  */
 public class ModelProductos {
     
-   private  SimpleIntegerProperty idProd = new SimpleIntegerProperty();
-   private SimpleStringProperty nombreProd = new SimpleStringProperty();
-   private  SimpleStringProperty descripcionProd = new SimpleStringProperty();
-   private  SimpleIntegerProperty cantidadProd = new SimpleIntegerProperty();
-   private  SimpleIntegerProperty precioUnitario = new SimpleIntegerProperty();
-   private  SimpleStringProperty unidadMedida = new SimpleStringProperty();
-   private  SimpleIntegerProperty idProv = new SimpleIntegerProperty();
+   private   SimpleIntegerProperty idProd = new SimpleIntegerProperty();
+   private  SimpleStringProperty nombreProd = new SimpleStringProperty();
+   private   SimpleStringProperty descripcionProd = new SimpleStringProperty();
+  private  SimpleStringProperty unidadMedida = new SimpleStringProperty();
    
    CRUD cr=new CRUD();
-   
+   ListView<String> lista=new ListView<>();
+     ObservableList data = 
+         FXCollections.observableArrayList();
+     
    public ModelProductos() 
    {
    }
     public ModelProductos(SimpleIntegerProperty idProd, SimpleStringProperty nombreProd, 
-            SimpleStringProperty descripcionProd, SimpleIntegerProperty cantidadProd, 
-            SimpleIntegerProperty precioUnitario, SimpleStringProperty unidadMedida,
-            SimpleIntegerProperty idProv) {
+            SimpleStringProperty descripcionProd,SimpleStringProperty unidadMed) {
         this.idProd = idProd;
         this.nombreProd = nombreProd;
         this.descripcionProd = descripcionProd;
-        this.cantidadProd = cantidadProd;
-        this.precioUnitario = precioUnitario;
-        this.unidadMedida = unidadMedida;
-        this.idProv = idProv;
+        this.unidadMedida = unidadMed;
+       
     }
 
     
@@ -49,91 +46,186 @@ public class ModelProductos {
     cr.insertar("call ProcInsertarProducto("
                     + "'"+getNombreProd()+"',"
                     + "'" +getDescripcionProd()+"',"
-                    +getCantidadProd()+","
-                    +getPrecioUnitario()+","
-                    +"'"+getUnidadMedida()+"',"
-                    +getIdProv()+")");
+                    +"'"+getUnidadMedida()+"'"
+                    +")");
       
     }
-    
-    public void consultarProductoNombre(String parametro)
-    {
-     CRUD cr=new CRUD();
-     ResultSet resul=null;
-     resul=cr.Consulta("select * from Productos where nombreProd='"+parametro +"'");
-       try {
-           if(resul.next()){
-                VaciarDatos(resul);
-           } } catch (SQLException ex) {
-           Logger.getLogger(ModelProductos.class.getName()).log(Level.SEVERE, null, ex);
-       }
-    }
-    public void consultarProductoID(int parametro)
-    {
-     CRUD cr=new CRUD();
-      ResultSet resul = null;
-     cr.Consulta("select * from Productos where idProd="+parametro +"");
-              try {
-           if(resul.next()){
-                VaciarDatos(resul);
-           } } catch (SQLException ex) {
-           Logger.getLogger(ModelProductos.class.getName()).log(Level.SEVERE, null, ex);
-       }
+
+    public boolean ConsultarID(int llamada,ListView list,ObservableList dat,int param){
+         lista=list;
+         data=dat;
+   //     CRUD cr=new CRUD();
+     ResultSet resul;
+     
+     resul=cr.Consulta("select * from Productos where idProd ="+param);
+     ObservableList li;
+     li=listUser(resul,0);
+     if(llamada==0){
+     Controllers.Productos.ConsultarProductosController prod=new Controllers.Productos.ConsultarProductosController();
+    prod.setList(li);
+     }else if(llamada==1){
+         Controllers.Usuarios.ModificarUsuarios2 user=new Controllers.Usuarios.ModificarUsuarios2();
+         user.setList(li);
+     }
+     
+    return !li.isEmpty();
     }
     
-    public void VaciarDatos(ResultSet rs){
+    public boolean consultarIDEliminar(ListView list,ObservableList dat,int param){
+      lista=list;
+         data=dat;
+   //     CRUD cr=new CRUD();
+     ResultSet resul;
+     
+     resul=cr.Consulta("select * from Productos where idProd ="+param +"");
+     ObservableList li;
+     li=listUser(resul,0);
+     Controllers.Usuarios.EliminarUsuariosController user=new Controllers.Usuarios.EliminarUsuariosController();
+     user.setList(li);
+     
+    return !li.isEmpty();
+    }
+    
+    
+     
+     public boolean ConsultarNombre(int llamada,ListView list,ObservableList dat,String param){
+         lista=list;
+         data=dat;
+   //     CRUD cr=new CRUD();
+     ResultSet resul;
+         System.out.println("entro a consultar nombre");
+     resul=cr.Consulta("select * from Productos where nombreProd like '"+param+"%'");
+     ObservableList li;
+     li=listUser(resul,1);
+     if(llamada==0){
+     //Controllers.Usuarios.ConsultarUsuariosController user=new Controllers.Usuarios.ConsultarUsuariosController();
+     Controllers.Productos.ConsultarProductosController prod=new Controllers.Productos.ConsultarProductosController();
+     prod.setList(li);
+     }else if(llamada==1){
+         Controllers.Usuarios.ModificarUsuarios2 user=new Controllers.Usuarios.ModificarUsuarios2();
+         user.setList(li);
+     }
+     
+    return !li.isEmpty();
+    }
+    
+    public boolean ConsultarNombreEliminar(ListView list,ObservableList dat,String param){
+     lista=list;
+         data=dat;
+   //     CRUD cr=new CRUD();
+     ResultSet resul;
+     
+     resul=cr.Consulta("select * from Productos where nombreProd like '"+param+"%' ");
+     ObservableList li;
+     li=listUser(resul,1);
+     Controllers.Usuarios.EliminarUsuariosController user=new Controllers.Usuarios.EliminarUsuariosController();
+     user.setList(li);
+     
+    return !li.isEmpty();   
+    }
+    
+    public boolean VaciarDatos(ResultSet rs){
        try {
-           while(rs.next()){
-               setIdProd(rs.getInt(1));
+           CRUD cr=new CRUD();
+              System.out.println("entro a vaciar datos del resulset");
+              if(rs.next()){
+                 // System.out.println("entro a copiar los valores");
+                 
+               setIdProd(Integer.parseInt(rs.getString(1)));
+               setNombreProd(rs.getString(2));
                
-           }
+               
+                   //System.out.println("posicion 3" +rs.getString(3));
+                   
+               //setIdProv(rs.getInt(7));
+               
+              }
+              
+              else{return false;}
        } catch (SQLException ex) {
            Logger.getLogger(ModelProductos.class.getName()).log(Level.SEVERE, null, ex);
        }
-        
+     return true;   
     }
-    public void modificarProducto()
+    
+    
+    
+    
+    
+    public void eliminarProductos(int id)
     {
         
+        cr.Actualizar("update Productos set estadoContrato='Terminado' where idProd="+id+"");
     }
-    public void eliminarProducto()
+    /*
+    public void modificarUsuario()
     {
-        
+        cr.insertar("call   ProcActualizarUsuario("
+                    +""+getIdProd()+","
+                    + "'"+getNombreProd()+"',"
+                    +"'"+getDescripcionProd()+"',"
+                    +"'"+getUnidadMedida()+"'"
+                    +")");
     }
-    public ObservableList<ModelProductos> listProduc(ResultSet rs)
-    {
-        try 
-        {
-            ObservableList<ModelProductos> list = FXCollections.observableArrayList();
-           
-            
-         
-            while(rs.next())
-            {
+    */
+    
+    public ObservableList<ModelProductos> listUser(ResultSet rs,int pos){
+        try {
+           // connected();
+          
+           ObservableList<ModelProductos> list = FXCollections.observableArrayList();
+       
+             list.clear();
+             data.clear();
+         //ListView<String> lstContenedorConsulta = null;
+         //lstContenedorConsulta=(ListView<String>) user.getLstContenedorConsulta();
+            while(rs.next()){
                 
+                ModelProductos nodo = new ModelProductos();
+                 nodo.setIdProd(rs.getInt(1));
+                 System.out.println("id: "+rs.getInt(1));
+                nodo.setNombreProd(rs.getString(2));
+                if(pos==0){
+                data.add(rs.getString(1));}
+                else{
+                      data.add(rs.getString(2));
+                }
+                
+                nodo.setDescripcionProd(rs.getString(3));
+                nodo.setUnidadMedida(rs.getString(4));
+             //   System.out.println("nombre: "+rs.getString(2));
+              //  System.out.println("nodo: "+nodo);
+                list.add(nodo);
+                 
+            
             }
-           
+            //lstContenedorConsulta.setItems(data);
+            lista.setItems(data);
             return list;
-        } catch (Exception e) 
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }finally{
         //closed();
         }       
     }
-
+    
+    
+    
+    
+    
+    
     /**
      * @return the idProd
      */
-    public int getIdProd() {
+    public Integer getIdProd() {
         return idProd.get();
     }
 
     /**
      * @param idProd the idProd to set
      */
-    public void setIdProd(int idProd) {
+    public void setIdProd(Integer idProd) {
         this.idProd.set(idProd);
     }
 
@@ -148,8 +240,7 @@ public class ModelProductos {
      * @param nombreProd the nombreProd to set
      */
     public void setNombreProd(String nombreProd) {
-      
-       this.nombreProd.set(nombreProd);
+        this.nombreProd.set( nombreProd);
     }
 
     /**
@@ -167,36 +258,6 @@ public class ModelProductos {
     }
 
     /**
-     * @return the cantidadProd
-     */
-    public int getCantidadProd() {
-        return cantidadProd.get();
-    }
-
-    /**
-     * @param cantidadProd the cantidadProd to set
-     */
-    public void setCantidadProd(int cantidadProd) {
-        this.cantidadProd.set(cantidadProd);
-    }
-
-    /**
-     * @return the precioUnitario
-     */
-    public int getPrecioUnitario() {
-        return precioUnitario.get();
-    }
-
-    /**
-     * @param precioUnitario the precioUnitario to set
-     */
-    public void setPrecioUnitario(int precioUnitario) {
-        
-        this.precioUnitario.set(precioUnitario);
-        
-    }
-
-    /**
      * @return the unidadMedida
      */
     public String getUnidadMedida() {
@@ -209,20 +270,8 @@ public class ModelProductos {
     public void setUnidadMedida(String unidadMedida) {
         this.unidadMedida.set(unidadMedida);
     }
-
-    /**
-     * @return the idProv
-     */
-    public int getIdProv() {
-        return idProv.get();
-    }
-
-    /**
-     * @param idProv the idProv to set
-     */
-    public void setIdProv(int idProv) {
-        this.idProv.set(idProv);
-    }
+    
+    
     
     
 }
