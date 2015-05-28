@@ -4,13 +4,13 @@ use umaiDB;
 create table usuarios(
 	idUsu int auto_increment primary key,
     nombreUsu varchar(30) not null,
-    contraseñaUsu varchar(20) not null,
-    calleUsu varchar(30),
-    coloUsu varchar(30),
-    ciudUsu varchar(30),
+    contraseñaUsu varchar(30) not null,
+    calleUsu varchar(50),
+    coloUsu varchar(50),
+    ciudUsu varchar(50),
     codigoPostal varchar(20),
     telefonoUsu varchar(20),
-    avatarUsu varchar(20),
+    avatarUsu varchar(50),
     sueldoUsu int not null,
     puntosUsu int,
     tipoPermiso int not null ,
@@ -88,13 +88,9 @@ create table proveedor(
 
 create table Productos(
 	idProd int auto_increment primary key,
-    nombreProd  varchar(20) not null,
-    descripcionProd varchar(30),
-    cantidadProd int not null,
-    precioUnitario  int not null,
-    unidadMedida varchar(10),
-    idProv  int,
-    foreign key (idProv) references proveedor(idPRov) 
+    nombreProd  varchar(30) not null,
+    descripcionProd varchar(150),
+    unidadMedidadProd varchar(30)
     
 );
 
@@ -110,24 +106,10 @@ create table detalleReceta(
 );
 
 
-delimiter //
- 
-CREATE PROCEDURE  ProcInsertarProducto
-(   in nombreProd  varchar(20) ,
-    in descripcionProd varchar(30),
-    in cantidadProd int,
-    in precioUnitario  int,
-    in unidadMedida varchar(10),
-    in idProv  int
-)
-BEGIN
-	insert into Productos(nombreProd,descripcionProd,cantidadProd,precioUnitario,unidadMedida,idProv)
-		values(NombreProd,descripcionProd,cantidadProd,precioUnitario,unidadMedida,idProv);
-END
-//
 
- 
+#DROP PROCEDURE IF EXISTS ProcInsertarUsuario;
 
+#drop procedure ProcActualizarUsuario;
 
 
 
