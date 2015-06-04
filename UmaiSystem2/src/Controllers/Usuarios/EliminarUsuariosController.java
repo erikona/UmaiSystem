@@ -80,16 +80,61 @@ public static final ObservableList names =
             }
             }
         });
+    if(rbNombUsu.isSelected()){
+        txtBuscarUsu.textProperty().addListener(new ChangeListener<String>(){
+        
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if(newValue.matches("([A-Za-z]*\\s*)*")){
+                txtBuscarUsu.setText(newValue);
+            }
+            else
+            {
+                txtBuscarUsu.setText(oldValue);
+            }
+            }
+        });
+    }
     }    
 public static ObservableList getData() {
         return data;
     }
     @FXML
     private void rbNombUsuClick(ActionEvent event) {
+        
+        Limpiar();
+        txtBuscarUsu.textProperty().addListener(new ChangeListener<String>(){
+        
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if(newValue.matches("([A-Za-z]*\\s*)*")){
+                txtBuscarUsu.setText(newValue);
+            }
+            else
+            {
+                txtBuscarUsu.setText(oldValue);
+            }
+            }
+        });
+        
     }
 
     @FXML
     private void rbIdUsuClick(ActionEvent event) {
+         Limpiar();
+        txtBuscarUsu.textProperty().addListener(new ChangeListener<String>(){
+        
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if(newValue.matches("[0-9]*")){
+                txtBuscarUsu.setText(newValue);
+            }
+            else
+            {
+                txtBuscarUsu.setText(oldValue);
+            }
+            }
+        });
     }
 
 
@@ -206,5 +251,14 @@ public static ObservableList getData() {
         txtNombreUsu.setText(usu.getNombreUsu());
        
     }
-    
+     
+     private void Limpiar() {
+            
+        txtIdUsu.setText("");
+        txtBuscarUsu.setText("");
+        //.setText("");
+       txtNombreUsu.setText("");
+        
+}
+
 }

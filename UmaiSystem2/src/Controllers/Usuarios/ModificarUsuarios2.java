@@ -55,17 +55,14 @@ public class ModificarUsuarios2 implements Initializable {
     private TextField txtContraseñaUsu;
     @FXML
     private TextField txtCalleUsu;
-    private TextField txtColoniaUsu;
-    private TextField txtCiudadUsu;
-    private TextField txtCpUsu;
+   
     @FXML
     private TextField txtTelefonoUsu;
     @FXML
     private TextField txtSueldoUsu;
     @FXML
     private TextField txtPuntosUsu;
-    private TextField txtPermisoUsu;
-    private TextField txtContratoUsu;
+    
     @FXML
     private TextField txtIdUsu;
     @FXML
@@ -120,6 +117,7 @@ public class ModificarUsuarios2 implements Initializable {
                   
                 while(resul.next()){
                         cbCodigoPostalUsu.getItems().add(resul.getString(1));
+                        
                 }   
                 resul.close();
                  AñadirColonias();
@@ -204,12 +202,41 @@ public class ModificarUsuarios2 implements Initializable {
 
     @FXML
     private void rbNombUsuClick(ActionEvent event) {
+        Limpiar();
+        txtBuscarUsu.textProperty().addListener(new ChangeListener<String>(){
+        
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if(newValue.matches("([A-Za-z]*\\s*)*")){
+                txtBuscarUsu.setText(newValue);
+            }
+            else
+            {
+                txtBuscarUsu.setText(oldValue);
+            }
+            }
+        });
+        
     }
 
     @FXML
     private void rbIdUsuClick(ActionEvent event) {
+         Limpiar();
+        txtBuscarUsu.textProperty().addListener(new ChangeListener<String>(){
+        
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if(newValue.matches("[0-9]*")){
+                txtBuscarUsu.setText(newValue);
+            }
+            else
+            {
+                txtBuscarUsu.setText(oldValue);
+            }
+            }
+        });
     }
-
+    
     @FXML
     private void eventBuscarConsultar(KeyEvent event) {
         Models.ModelUsuarios usu=new Models.ModelUsuarios();
@@ -460,4 +487,22 @@ public class ModificarUsuarios2 implements Initializable {
            
         }
     }
+    
+    private void Limpiar() {
+            
+        txtIdUsu.setText("");
+        txtBuscarUsu.setText("");
+        txtCalleUsu.setText("");
+        cbCiudadUsu.setValue(null);
+        cbColoniaUsu.setValue(null);
+        txtContraseñaUsu.setText("");
+        cbContratoUsu.setValue(null);
+        cbCodigoPostalUsu.setValue(null);
+        txtIdUsu.setText("");
+        txtNomUsu.setText("");
+        cbPermisoUsu.setValue(null);
+        txtPuntosUsu.setText("");
+        txtSueldoUsu.setText("");
+        txtTelefonoUsu.setText("");
+}
 }

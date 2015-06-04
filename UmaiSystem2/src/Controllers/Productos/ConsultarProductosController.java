@@ -47,8 +47,7 @@ public class ConsultarProductosController implements Initializable {
     private TextField txtUnidadMedida;
     @FXML
     private ListView<String> lstContenedorConsulta;
-     public static final ObservableList names = 
-         FXCollections.observableArrayList();
+     
      private static final ObservableList data = 
          FXCollections.observableArrayList();
      
@@ -75,10 +74,38 @@ public class ConsultarProductosController implements Initializable {
 
     @FXML
     private void rbNombProdClick(ActionEvent event) {
+     Limpiar();
+        txtBuscarProd.textProperty().addListener(new ChangeListener<String>(){
+        
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if(newValue.matches("([A-Za-z]*\\s*)*")){
+                txtBuscarProd.setText(newValue);
+            }
+            else
+            {
+                txtBuscarProd.setText(oldValue);
+            }
+            }
+        });   
     }
 
     @FXML
     private void rbIdProdClick(ActionEvent event) {
+     Limpiar();
+        txtBuscarProd.textProperty().addListener(new ChangeListener<String>(){
+        
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if(newValue.matches("[0-9]*")){
+                txtBuscarProd.setText(newValue);
+            }
+            else
+            {
+                txtBuscarProd.setText(oldValue);
+            }
+            }
+        });   
     }
 
     private void txtBuscarProdClick(ActionEvent event) {
@@ -107,7 +134,7 @@ public ListView<?> getLstContenedorConsulta() {
     @FXML
     private void txtBuscarProdClick(KeyEvent event) {
         Models.ModelProductos prod=new Models.ModelProductos();
-         System.out.println("entro??");
+         
         if(rbNombProd.isSelected())
          {
             if(!txtBuscarProd.getText().equals("")){
@@ -199,6 +226,17 @@ public ListView<?> getLstContenedorConsulta() {
          }
         
     }
+    private void Limpiar() {
+            
+        txtIdProd.setText("");
+        txtNombreProd.setText("");
+        txtBuscarProd.setText("");
+        txtIdProd.setText("");
+        txtDescProd.setText("");
+        txtUnidadMedida.setText("");
+        //.setValue(null);
+    }
+
 }
 
     

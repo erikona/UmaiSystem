@@ -104,10 +104,40 @@ public class ConsultarUsuariosController implements Initializable {
 
     @FXML
     private void rbNombUsuClick(ActionEvent event) {
+        Limpiar();
+        txtBuscarUsu.textProperty().addListener(new ChangeListener<String>(){
+        
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if(newValue.matches("([A-Za-z]*\\s*)*")){
+                txtBuscarUsu.setText(newValue);
+            }
+            else
+            {
+                txtBuscarUsu.setText(oldValue);
+            }
+            }
+        });
+        
     }
 
     @FXML
     private void rbIdUsuClick(ActionEvent event) {
+        
+           Limpiar();
+        txtBuscarUsu.textProperty().addListener(new ChangeListener<String>(){
+        
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            if(newValue.matches("[0-9]*")){
+                txtBuscarUsu.setText(newValue);
+            }
+            else
+            {
+                txtBuscarUsu.setText(oldValue);
+            }
+            }
+        });
     }
 
 
@@ -235,6 +265,24 @@ public class ConsultarUsuariosController implements Initializable {
         txtPuntosUsu.setText("");
         txtSueldoUsu.setText("");
         txtTelefonoUsu.setText("");
+    }
+    private void Limpiar() {
+            
+        txtIdUsu.setText("");
+        txtBuscarUsu.setText("");
+        txtCalleUsu.setText("");
+        txtCiudadUsu.setText("");
+        txtColoniaUsu.setText("");
+        txtContraseñaUsu.setText("");
+        txtContratoUsu.setText("");
+        txtCpUsu.setText("");
+        txtIdUsu.setText("");
+        txtNomUsu.setText("");
+        txtPermisoUsu.setText("");
+        txtPuntosUsu.setText("");
+        txtSueldoUsu.setText("");
+        txtTelefonoUsu.setText("");
+        
     }
 
 }

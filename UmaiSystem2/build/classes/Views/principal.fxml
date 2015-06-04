@@ -95,6 +95,11 @@
                                                 <Font name="Arial" size="14.0" />
                                              </font>
                                           </Button>
+                                          <Button fx:id="btnAgregarCompra" layoutX="29.0" layoutY="146.0" mnemonicParsing="false" onAction="#btnAgregarCompraClick" prefHeight="26.0" prefWidth="131.0" style="-fx-background-color: #42C976;" text="Agregar Compra" textFill="WHITE">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                          </Button>
                                        </children>
                                     </VBox>
                                  </children>

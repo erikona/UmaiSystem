@@ -79,12 +79,28 @@ public class AgregarProductosController implements Initializable {
     @FXML
     private void btnAceptarClick(ActionEvent event) {
         
-        if(txtNombreProd.getText()!=null && txtDescProd.getText()!=null){
+        if(txtNombreProd.getText()!=null && txtDescProd.getText()!=null && cboxUnidadProd.getValue()!=null){
                  Models.ModelProductos prod=new Models.ModelProductos();
                  prod.setNombreProd(txtNombreProd.getText());
                  prod.setDescripcionProd(txtDescProd.getText());
                  prod.setUnidadMedida(cboxUnidadProd.getValue());
                  prod.agregarProducto();
+                 lblError.setText("Agregado Correctamente!");
+        }
+        else{
+            String mensaje="Campos";
+            if(txtNombreProd.getText()==null){
+              mensaje+="nombre ";
+            }
+            if(txtDescProd.getText()==null){
+                mensaje+=" descripcion ";
+            }
+            if(cboxUnidadProd.getValue()==null){
+                mensaje+=" unidad ";
+            }
+            mensaje+="vacios";
+            lblError.setText(mensaje);
+            lblError.setVisible(true);
         }
     }
 

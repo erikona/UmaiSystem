@@ -56,6 +56,8 @@ public class MenuPrincipalController implements Initializable {
     private AnchorPane EscenaPrincipal;
     
     Controllers.ControllerStage cs=new Controllers.ControllerStage();
+    @FXML
+    private Button btnAgregarCompra;
    
     /**
      * Initializes the controller class.
@@ -110,7 +112,7 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private void btnModificarProductoClick(ActionEvent event) {
         //cs.setPaneAnchor(EscenaPrincipal);
-        cs.openNewWindow("/Views/Productos/ModificarProducto.fxml");
+        cs.openNewWindow("/Views/Productos/ModificarProducto2.fxml");
     }
 
     @FXML
@@ -154,5 +156,11 @@ public class MenuPrincipalController implements Initializable {
     @FXML
     private void btnEliminarRecetaClick(ActionEvent event) {
     }
+
+    @FXML
+    private void btnAgregarCompraClick(ActionEvent event) {
+         cs.openNewWindow("/Views/Productos/AgregarCompras.fxml"); 
+    }
+    
     
 }

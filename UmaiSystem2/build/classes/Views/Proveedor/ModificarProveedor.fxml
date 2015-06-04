@@ -6,109 +6,259 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Proveedor.ModificarProveedorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="715.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Proveedor.ModificarProveedorController">
    <children>
-      <GridPane alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane layoutX="14.0" layoutY="23.0" prefHeight="558.0" prefWidth="685.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="166.0" minHeight="10.0" prefHeight="125.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="327.0" minHeight="10.0" prefHeight="303.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="113.0" minHeight="0.0" prefHeight="84.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <RadioButton fx:id="rbNombreProv" mnemonicParsing="false" onAction="#rbNombreClick" text="Nombre">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </RadioButton>
-                  <RadioButton fx:id="rbIdProv" mnemonicParsing="false" onAction="#rbIdClick" text="Id          ">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </RadioButton>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <RadioButton fx:id="rbNombreProv" mnemonicParsing="false" onAction="#rbNombreClick" selected="true" text="Nombre">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="grupoModificarProveedor" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbIdProv" mnemonicParsing="false" onAction="#rbIdClick" text="Id          " toggleGroup="$grupoModificarProveedor">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <TextField fx:id="txtBuscarProv" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="250.0" onKeyReleased="#eventBuscarProveedor" prefHeight="26.0" prefWidth="250.0">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets right="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <ListView fx:id="lstContenedorDatos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="67.0" prefWidth="278.0" visible="false">
+                           <VBox.margin>
+                              <Insets right="20.0" />
+                           </VBox.margin>
+                        </ListView>
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+            </GridPane>
+            <GridPane fx:id="gridContenedorCampos" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <TextField fx:id="txtBuscarProv" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="250.0" onAction="#txtBuscarProvClick" prefHeight="26.0" prefWidth="250.0">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </TextField>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Id del proveedor">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtIdProv" alignment="CENTER" disable="true" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="133.0" onAction="#txtIdProvClick" prefHeight="26.0" prefWidth="250.0">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Nombre del proveedor">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtNombreProv" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="168.0" onAction="#txtNombreProvClick" prefHeight="26.0" prefWidth="250.0">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="227.0" text="Código Postal">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cbCodigoPostal" maxHeight="26.0" maxWidth="250.0" prefHeight="26.0" prefWidth="250.0">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Ciudad del proveedor">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ComboBox fx:id="cbCiudadProveedor" maxHeight="26.0" maxWidth="250.0" prefHeight="26.0" prefWidth="250.0">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="194.0" text="Colonia">
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ComboBox fx:id="cbColonia" maxHeight="26.0" maxWidth="250.0" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <VBox prefHeight="55.0" prefWidth="236.0">
+                           <children>
+                              <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="182.0" text="Calle">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtCalle" maxHeight="26.0" maxWidth="250.0" prefHeight="26.0" prefWidth="250.0">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label maxHeight="18.0" maxWidth="250.0" prefHeight="16.0" prefWidth="250.0" text="Email del proveedor">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtEmailProv" alignment="CENTER" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="126.0" prefHeight="26.0" prefWidth="250.0">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+                     <children>
+                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Teléfono del proveedor">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField fx:id="txtTelefonoProv" alignment="CENTER" maxHeight="26.0" maxWidth="249.0" minHeight="26.0" minWidth="250.0" prefHeight="26.0" prefWidth="250.0">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
+                     <children>
+                        <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="250.0" text="Estado Contrato">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ComboBox fx:id="cbEstado" maxHeight="26.0" maxWidth="250.0" prefHeight="26.0" prefWidth="250.0">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+            </GridPane>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                <children>
-                  <Label text="Id del proveedor">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="txtIdProv" alignment="CENTER" disable="true" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="250.0" onAction="#txtIdProvClick" prefHeight="26.0" prefWidth="250.0">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Label text="Nombre del proveedor">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="txtNombreProv" alignment="CENTER" disable="true" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="250.0" onAction="#txtNombreProvClick" prefHeight="26.0" prefWidth="250.0">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="5">
-               <children>
-                  <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancelarClick" text="Cancelar">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <children>
-                  <Button fx:id="txtGuardar" mnemonicParsing="false" onAction="#txtGuardarClick" text="Guardar">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
-               <children>
-                  <Label text="Email del proveedor">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="txtEmailProv" alignment="CENTER" disable="true" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="250.0" onAction="#txtEmailProvClick" prefHeight="26.0" prefWidth="250.0">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
-               <children>
-                  <Label fx:id="lblError" alignment="TOP_LEFT" text="***ErrorMessage***" textFill="RED">
+                  <Label fx:id="lblError" alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="478.0" textFill="RED">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
@@ -116,60 +266,38 @@
                         <Insets left="30.0" />
                      </VBox.margin>
                   </Label>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <Label alignment="CENTER" text="Teléfono del proveedor">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="txtTelefonoProv" alignment="CENTER" disable="true" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="250.0" onAction="#txtTelefonoProvClick" prefHeight="26.0" prefWidth="250.0">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
-               <children>
-                  <Label text="Ciudad del proveedor">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <TextField fx:id="txtCiudadProv" alignment="CENTER" disable="true" maxHeight="26.0" maxWidth="250.0" minHeight="26.0" minWidth="250.0" onAction="#txtCiudadProvClick" prefHeight="26.0" prefWidth="250.0">
-                     <font>
-                        <Font name="Arial" size="14.0" />
-                     </font>
-                  </TextField>
+                  <GridPane prefHeight="57.0" prefWidth="597.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <FlowPane alignment="CENTER" prefHeight="57.0" prefWidth="204.0">
+                           <children>
+                              <Button fx:id="btnCancelar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnCancelarClick" text="Cancelar">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER" prefHeight="57.0" prefWidth="149.0" GridPane.columnIndex="1">
+                           <children>
+                              <Button fx:id="txtGuardar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#txtGuardarClick" text="Guardar">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </GridPane>
                </children>
             </VBox>
          </children>
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
       </GridPane>
    </children>
 </AnchorPane>
