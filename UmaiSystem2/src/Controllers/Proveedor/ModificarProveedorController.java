@@ -189,10 +189,11 @@ public class ModificarProveedorController implements Initializable {
             
         txtIdProv.setText("");
         txtBuscarProv.setText("");
+        txtNombreProv.setText("");
         txtCalle.setText("");
         cbCiudadProveedor.setValue(null);
         cbColonia.setValue(null);
-        
+        txtEmailProv.setText("");
         cbEstado.setValue(null);
         cbCodigoPostal.setValue(null);
         txtTelefonoProv.setText("");
@@ -370,16 +371,7 @@ public class ModificarProveedorController implements Initializable {
             //proveedores.agregarProveedor();
             proveedores.modificarProveedor();
             lblError.setText("Agregado bien chido");
-            txtIdProv.setText("");
-            txtNombreProv.setText("");
-            txtTelefonoProv.setText("");
-            txtEmailProv.setText("");
-            cbCodigoPostal.setValue("");
-            cbCiudadProveedor.setValue("");
-            cbColonia.setValue("");
-            txtCalle.setText("");
-            cbEstado.setValue(null);
-            txtBuscarProv.setText("");
+           Limpiar();
         }
     }
 

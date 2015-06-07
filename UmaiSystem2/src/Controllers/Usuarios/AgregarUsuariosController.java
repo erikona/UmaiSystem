@@ -230,7 +230,7 @@ public class AgregarUsuariosController implements Initializable {
             txtCalle.setText("");
             cbColonia.setValue("");
             cbCiudad.setValue("");
-            cbCodigoPostal.setValue("");
+            cbCodigoPostal.setValue(null);
             txtTelefonoUsu.setText("");
             txtSueldoUsu.setText("");
             txtPuntosUsu.setText("");

@@ -50,23 +50,26 @@ END
 
 delimiter //
  CREATE PROCEDURE  ProcActualizarUsuario
- (  idUsu int,
-    nombreUsu varchar(30) ,
-    contraseñaUsu varchar(20) ,
-    calleUsu varchar(30),
-    coloUsu varchar(30),
-    ciudUsu varchar(30),
-    codigoPostal varchar(20),
-    telefonoUsu varchar(20),
-    sueldoUsu int,
-    puntosUsu int,
-    tipoPermiso int,
-    estadoContrato varchar(30)
-)
+ (  
+ 
+	idUsu2 int ,
+    nombreUsu2 varchar(30),
+    contraseñaUsu2 varchar(30) ,
+    calleUsu2 varchar(50),
+    coloUsu2 varchar(50),
+    ciudUsu2 varchar(50),
+    codigoPostal2 varchar(20),
+    telefonoUsu2 varchar(20),
+    
+    sueldoUsu2 int,
+    puntosUsu2 int,
+    tipoPermiso2 int  ,
+    estadoContrato2 varchar(30)
+ )
 BEGIN
-update Usuarios set nombreUsu=nombreUsu,contraseñaUsu=contraseñaUsu,calleUsu=calleUsu,coloUsu=coloUsu,ciudUsu=ciudUsu,codigoPostal=codigoPostal
-,telefonoUsu=telefonoUsu,sueldoUsu=sueldoUsu,puntosUsu=puntosUsu,tipoPermiso=tipoPermiso,estadoContrato=estadoContrato
-where idUsu=idUsu;
+update Usuarios set nombreUsu=nombreUsu2,contraseñaUsu=contraseñaUsu2,calleUsu=calleUsu2,coloUsu=coloUsu2,ciudUsu=ciudUsu2,codigoPostal=codigoPostal2
+,telefonoUsu=telefonoUsu2,sueldoUsu=sueldoUsu2,puntosUsu=puntosUsu2,tipoPermiso=tipoPermiso2,estadoContrato=estadoContrato2
+where idUsu=idUsu2;
 END
 //
 
@@ -89,7 +92,7 @@ END
 #drop procedure ProcActualizarproveedor;
 delimiter //
  CREATE PROCEDURE  ProcActualizarProveedor
- ( idProv2 int ,
+ (  idProv2 int ,
     nombreProv2 varchar(30),
     codigoPostal2 varchar(20),
     ciudadProv2 varchar(30),
@@ -101,7 +104,7 @@ delimiter //
 )
 BEGIN
 update proveedor set nombreProv=nombreProv2,CodigoPostal=codigoPostal2,ciudadProv=ciudadProv2,coloniaProv=coloniaProv2,
-calleProv=calleProv2,telefonoProv=telefonoProv2,emailProv=emailProv,estadoContrato=estadoContrato2 where idProv=idProv2;
+calleProv=calleProv2,telefonoProv=telefonoProv2,emailProv=emailProv2,estadoContrato=estadoContrato2 where idProv=idProv2;
 END
 //
 

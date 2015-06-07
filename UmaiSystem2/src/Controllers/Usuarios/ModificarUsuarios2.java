@@ -364,8 +364,8 @@ public class ModificarUsuarios2 implements Initializable {
             txtContraseñaUsu.setText("");
             txtCalleUsu.setText("");
             cbColoniaUsu.setValue("");
-            cbCiudadUsu.setValue("");
-            cbCodigoPostalUsu.setValue("");
+            cbCiudadUsu.setValue(null);
+            cbCodigoPostalUsu.setValue(null);
             txtTelefonoUsu.setText("");
             txtSueldoUsu.setText("");
             txtPuntosUsu.setText("");

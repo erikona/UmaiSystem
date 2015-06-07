@@ -21,7 +21,7 @@ import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
- * @author lalo
+ * @author
  */
 public class AgregarProveedorController implements Initializable {
     @FXML
@@ -172,9 +172,9 @@ public class AgregarProveedorController implements Initializable {
             txtNombreProv.setText("");
             txtTelefonoProv.setText("");
             txtEmailProv.setText("");
-            cboxCodigoProveedor.setValue("");
-            cboxCiudadProv.setValue("");
-            cboxColoniaProv.setValue("");
+            cboxCodigoProveedor.setValue(null);
+            cboxCiudadProv.setValue(null);
+            cboxColoniaProv.setValue(null);
             txtCalleProv.setText("");
             
         }
