@@ -17,23 +17,18 @@ import javafx.stage.Stage;
  *
  * @author 
  */
-public class ControllerStage {
-    
-   private  static Stage stage;
-   private static Scene scene;
-   private static AnchorPane panelP;
-   
+public class ControllerStage{
+    private static Stage stage;
+    private static Scene scene;
+    private static AnchorPane panelP;
   
-   
-  public void setStage(Stage stage){
-       ControllerStage.stage=stage;
-      
-  }
-  public Stage getStage(){
-      
-      return stage;
-      
-  }
+    public void setStage(Stage stage){
+        ControllerStage.stage=stage;
+    }
+    
+    public Stage getStage(){
+        return stage;
+    }
 
     /**
      * @return the scene
@@ -45,38 +40,26 @@ public class ControllerStage {
     /**
      * @param scene the scene to set
      */
-    public void setScene(Scene scene) {
+    public void setScene(Scene scene){
         ControllerStage.scene = scene;
     }
     
-    
-    
     public void setPaneAnchor(AnchorPane pane){
-         this.panelP=pane;
+        this.panelP=pane;
     }
     
-    public void openNewWindow(String FXMLFile)
-   
-    {
-     //ChildNode child;
-        try 
-        {            
+    public void openNewWindow(String FXMLFile){
+        try{            
             URL url = getClass().getResource(FXMLFile);
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(url);
             fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
             AnchorPane page = (AnchorPane) fxmlLoader.load(url.openStream()); 
             panelP.getChildren().clear();
-            panelP.getChildren().add(page);
-            
+            panelP.getChildren().add(page);   
         } 
-        catch (IOException e) 
-        {
+        catch (IOException e){
             e.printStackTrace();
         }
     }
-    
-    
-    
-
 }

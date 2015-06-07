@@ -1,4 +1,3 @@
-
 package Controllers.Productos;
 
 import java.net.URL;
@@ -20,7 +19,7 @@ import javafx.scene.input.KeyEvent;
  *
  * @author 
  */
-public class AgregarProductosController implements Initializable {
+public class AgregarProductosController implements Initializable{
     @FXML
     private TextField txtNombreProd;
     @FXML
@@ -38,62 +37,62 @@ public class AgregarProductosController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
+    public void initialize(URL url, ResourceBundle rb){
         cboxUnidadProd.getItems().addAll("Kg","Gramos","Caja","Lata","Litro","mililitro","pieza");
         txtNombreProd.textProperty().addListener(new ChangeListener<String>(){
-        
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("^[A-Za-z]*(\\s?[A-Za-z]*)*") && txtNombreProd.getText().length()<30){
-                txtNombreProd.setText(newValue);
-            }
-            else
-            {
-                txtNombreProd.setText(oldValue);
-            }
+                if(newValue.matches("^[A-Za-z]*(\\s?[A-Za-z]*)*") && txtNombreProd.getText().length()<30){
+                    txtNombreProd.setText(newValue);
+                }
+                else{
+                    txtNombreProd.setText(oldValue);
+                }
             }
         });
         
         txtDescProd.textProperty().addListener(new ChangeListener<String>(){
-        
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches(".*") && txtDescProd.getText().length()<150){
-                txtDescProd.setText(newValue);
-            }
-            else
-            {
-                txtDescProd.setText(oldValue);
-            }
+                if(newValue.matches(".*") && txtDescProd.getText().length()<150){
+                    txtDescProd.setText(newValue);
+                }
+                else{
+                    txtDescProd.setText(oldValue);
+                }
             }
         });
-        
-        
     }    
 
     @FXML
-    private void btnCancelarClick(ActionEvent event) {
+    private void btnCancelarClick(ActionEvent event){
+        
+    }
+    
+    private void Limpiar(){
+        txtNombreProd.setText("");
+        txtDescProd.setText("");
+        cboxUnidadProd.setValue(null);
     }
 
     @FXML
-    private void btnAceptarClick(ActionEvent event) {
-        
+    private void btnAceptarClick(ActionEvent event){
         if(txtNombreProd.getText()!=null && txtDescProd.getText()!=null && cboxUnidadProd.getValue()!=null){
-                 Models.ModelProductos prod=new Models.ModelProductos();
-                 prod.setNombreProd(txtNombreProd.getText());
-                 prod.setDescripcionProd(txtDescProd.getText());
-                 prod.setUnidadMedida(cboxUnidadProd.getValue());
-                 prod.agregarProducto();
-                 lblError.setText("Agregado Correctamente!");
+            Models.ModelProductos prod=new Models.ModelProductos();
+            prod.setNombreProd(txtNombreProd.getText());
+            prod.setDescripcionProd(txtDescProd.getText());
+            prod.setUnidadMedida(cboxUnidadProd.getValue());
+            prod.agregarProducto();
+            lblError.setText("Agregado correctamente");
+            Limpiar();
         }
         else{
             String mensaje="Campos";
             if(txtNombreProd.getText()==null){
-              mensaje+="nombre ";
+                mensaje+="nombre ";
             }
             if(txtDescProd.getText()==null){
-                mensaje+=" descripcion ";
+                mensaje+=" descripción ";
             }
             if(cboxUnidadProd.getValue()==null){
                 mensaje+=" unidad ";
@@ -105,13 +104,12 @@ public class AgregarProductosController implements Initializable {
     }
 
     @FXML
-    private void eventValidarNombre(KeyEvent event) {
+    private void eventValidarNombre(KeyEvent event){
        
     }
 
     @FXML
-    private void eventValidarDescr(KeyEvent event) {
+    private void eventValidarDescr(KeyEvent event){
     
     }
-    
 }

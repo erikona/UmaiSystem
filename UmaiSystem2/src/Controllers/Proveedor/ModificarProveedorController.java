@@ -7,12 +7,8 @@ package Controllers.Proveedor;
 
 import Models.ModelProveedores;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -72,6 +68,7 @@ public class ModificarProveedorController implements Initializable {
     private ComboBox<String> cbEstado;
     @FXML
     private GridPane gridContenedorCampos;
+    
     public static final ObservableList names = 
          FXCollections.observableArrayList();
      private static final ObservableList data = 
@@ -79,114 +76,103 @@ public class ModificarProveedorController implements Initializable {
      
     public static  ObservableList<?> list;
     private boolean banCon=false;
+    
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb){
         txtBuscarProv.textProperty().addListener(new ChangeListener<String>(){
-        
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("[^'\"]*")){
-                txtBuscarProv.setText(newValue);
-            }
-            else
-            {
-                txtBuscarProv.setText(oldValue);
-            }
+                if(newValue.matches("[^'\"]*")){
+                    txtBuscarProv.setText(newValue);
+                }
+                else{
+                    txtBuscarProv.setText(oldValue);
+                }
             }
         });
-       ArrayList<String> datosCod = new ArrayList<String>();
-       // Models.ModelUsuarios msu=new ModelUsuarios();
-      Models.ConsultaCodigosPostales mc=new Models.ConsultaCodigosPostales();
-       
-      datosCod=mc.getcodigosPostales();
-      for (int i = 0; i <datosCod.size(); i++) {
-          cbCodigoPostal.getItems().add(datosCod.get(i));
-      }
-      AñadirColonias();
-      
-            cbEstado.getItems().addAll("Activo","Terminado");
-            
+        
+        ArrayList<String> datosCod = new ArrayList<String>();
+        Models.ConsultaCodigosPostales mc=new Models.ConsultaCodigosPostales();
+        datosCod=mc.getcodigosPostales();
+        for (int i = 0; i <datosCod.size(); i++) {
+            cbCodigoPostal.getItems().add(datosCod.get(i));
+        }
+        AñadirColonias();
+        cbEstado.getItems().addAll("Activo","Terminado");
     }    
 
     @FXML
-    private void rbNombreClick(ActionEvent event) {
+    private void rbNombreClick(ActionEvent event){
         Limpiar();
-        
     }
 
     @FXML
-    private void rbIdClick(ActionEvent event) {
-       
+    private void rbIdClick(ActionEvent event){
          Limpiar();
-        
     }
     
-
     @FXML
-    private void txtIdProvClick(ActionEvent event) {
+    private void txtIdProvClick(ActionEvent event){
+        
     }
 
     @FXML
-    private void txtNombreProvClick(ActionEvent event) {
+    private void txtNombreProvClick(ActionEvent event){
+        
     }
 
     @FXML
-    private void btnCancelarClick(ActionEvent event) {
+    private void btnCancelarClick(ActionEvent event){
+        
     }
 
-
-   public void AñadirColonias(){
+    public void AñadirColonias(){
         if(cbCiudadProveedor.getValue()!=null){
             Models.ConsultaCodigosPostales mc=new Models.ConsultaCodigosPostales();
             ArrayList<String> datos=new ArrayList<>();
             datos.clear();
             datos=mc.getColonias(cbCiudadProveedor.getValue());
-             cbColonia.getItems().clear();
-                //cbColonia.setValue(datos.get(0));
-                  String [] Colon=null;
-                  Colon=separarColonias(datos.get(0));
-                  cbColonia.setValue(Colon[0]);
+            cbColonia.getItems().clear();
+            String [] Colon=null;
+            Colon=separarColonias(datos.get(0));
+            cbColonia.setValue(Colon[0]);
             for (int i = 0; i <datos.size(); i++) {
-                 String temp=datos.get(i);
-                    Colon=separarColonias(temp);
-                     for (int j = 0; j <Colon.length; j++) {
+                String temp=datos.get(i);
+                Colon=separarColonias(temp);
+                for (int j = 0; j <Colon.length; j++) {
                     cbColonia.getItems().add(Colon[j]);
                 }
-                // cbColonia.getItems().add(datos.get(i));
-                // System.out.println("colonia: "+datos.get(i));
             }
         }
     }
-    public static String[] separarColonias(String texto)
-    {
+    
+    public static String[] separarColonias(String texto){
         java.util.StringTokenizer tokens = new java.util.StringTokenizer(texto,";",false);
         String separados[]=new String[tokens.countTokens()];
         int i=0;
-        while (tokens.hasMoreTokens()) 
-        {
+        while (tokens.hasMoreTokens()) {
             separados[i]=tokens.nextToken();
             i++;
         }
         return separados;
     }
    
-   
-    public ListView<?> getLstContenedorConsulta() {
-        
+    public ListView<?> getLstContenedorConsulta(){
         return lstContenedorDatos;
-        
     }
+    
     public void setList(ObservableList listt){
         list=listt;
     }
-    public static ObservableList getData() {
+    
+    public static ObservableList getData(){
         return data;
     }
-    private void Limpiar() {
-            
+    
+    private void Limpiar(){
         txtIdProv.setText("");
         txtBuscarProv.setText("");
         txtNombreProv.setText("");
@@ -197,134 +183,100 @@ public class ModificarProveedorController implements Initializable {
         cbEstado.setValue(null);
         cbCodigoPostal.setValue(null);
         txtTelefonoProv.setText("");
-}
+    }
 
     @FXML
-    private void eventBuscarProveedor(KeyEvent event) {
-         ModelProveedores prov=new ModelProveedores();
-         gridContenedorCampos.setVisible(false);
-        // lblError.setText("");
-         if(rbNombreProv.isSelected())
-         {
+    private void eventBuscarProveedor(KeyEvent event){
+        ModelProveedores prov=new ModelProveedores();
+        gridContenedorCampos.setVisible(false);
+        if(rbNombreProv.isSelected()){
             if(!txtBuscarProv.getText().equals("")){
                 getData().clear();
                 if(!isBanCon()){
-                if(prov.ConsultarNombre(1,lstContenedorDatos,data,txtBuscarProv.getText())){
-                   
-                lstContenedorDatos.setVisible(true);  
-                //gridContenedorDatos.setVisible(true);
-               // lblError.setText("");
-                lstContenedorDatos.getSelectionModel().selectedIndexProperty().addListener(
-                        new ChangeListener<Number>() {
-                             @Override
-                            public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-                                    Number newValue) {
-                               
+                    if(prov.ConsultarNombre(1,lstContenedorDatos,data,txtBuscarProv.getText())){
+                        lstContenedorDatos.setVisible(true); 
+                        lstContenedorDatos.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+                            @Override
+                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue){
                                 int valor=(int) newValue;
-                                    if(valor>=0){
-                                //   ModelUsuarios nodo=(ModelUsuarios) list.get(valor);
-                                  ModelProveedores nodo=(ModelProveedores)  list.get(valor);
+                                if(valor>=0){
+                                    ModelProveedores nodo=(ModelProveedores)  list.get(valor);
                                     vaciarDatosTxt(nodo);
                                     gridContenedorCampos.setVisible(true);
                                     lstContenedorDatos.setVisible(false);
-                                
                                 }
                             }
                         });
-                
-                }
-                else{
-                    lstContenedorDatos.setVisible(false);
-                    gridContenedorCampos.setVisible(false);
-                } 
-                
+                    }
+                    else{
+                        lstContenedorDatos.setVisible(false);
+                        gridContenedorCampos.setVisible(false);
+                    } 
                 }
             }
         }
-         else if(rbIdProv.isSelected()){
-             if(!txtBuscarProv.getText().equals("")){
+        else if(rbIdProv.isSelected()){
+            if(!txtBuscarProv.getText().equals("")){
                 getData().clear();
                 if(!isBanCon()){
-                if(prov.ConsultarID(1,lstContenedorDatos,data,Integer.parseInt(txtBuscarProv.getText()) )){
-                   
-                lstContenedorDatos.setVisible(true);  
-                //gridContenedorDatos.setVisible(true);
-                    //  lblError.setText("");
-                lstContenedorDatos.getSelectionModel().selectedIndexProperty().addListener(
-                        new ChangeListener<Number>() {
-                             @Override
-                            public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-                                    Number newValue) {
-                               
+                    if(prov.ConsultarID(1,lstContenedorDatos,data,Integer.parseInt(txtBuscarProv.getText()))){
+                        lstContenedorDatos.setVisible(true);  
+                        lstContenedorDatos.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+                            @Override
+                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue){
                                 int valor=(int) newValue;
-                                    if(valor>=0){
-                                   ModelProveedores nodo=(ModelProveedores) list.get(valor);                                    
+                                if(valor>=0){
+                                    ModelProveedores nodo=(ModelProveedores) list.get(valor);                                    
                                     vaciarDatosTxt(nodo);
                                     gridContenedorCampos.setVisible(true);
                                     lstContenedorDatos.setVisible(false);
-                                
                                 }
                             }
                         });
-                
-                }
-                else{
-                    lstContenedorDatos.setVisible(false);
-                    gridContenedorCampos.setVisible(false);
-                } 
-                
+                    }
+                    else{
+                        lstContenedorDatos.setVisible(false);
+                        gridContenedorCampos.setVisible(false);
+                    } 
                 }
             }
          }
-        
     }
-    private void vaciarDatosTxt(ModelProveedores prov) {
-       
-                     txtIdProv.setText(String.valueOf(prov.getIdProv()));
-                     txtNombreProv.setText(prov.getNombreProv());
-                  //  txtCiudadUsu.setText(prov.getCiudUsu());
-                    cbCiudadProveedor.setValue(prov.getCiudadProv());
-                    //txtColoniaUsu.setText(prov.getColoUsu());
-                    cbColonia.setValue(prov.getColoniaProv());
-                    txtCalle.setText(prov.getCalleProv());
-                    //txtContratoUsu.setText(prov.getEstadoContrato());
-                    cbEstado.setValue(String.valueOf(prov.getContrato()));
-                    //txtCpUsu.setText(prov.getCodigoPostal());
-                    cbCodigoPostal.setValue(prov.getCodigoProv());
-                    //txtPermisoUsu.setText(String.valueOf(prov.getTipoPermiso()));
-                   
-                    
-                   
-                   
-                    txtTelefonoProv.setText(prov.getTelefonoProv());
-                    txtEmailProv.setText(prov.getEmailProv());
+    
+    private void vaciarDatosTxt(ModelProveedores prov){
+        txtIdProv.setText(String.valueOf(prov.getIdProv()));
+        txtNombreProv.setText(prov.getNombreProv());
+        cbCiudadProveedor.setValue(prov.getCiudadProv());
+        cbColonia.setValue(prov.getColoniaProv());
+        txtCalle.setText(prov.getCalleProv());
+        cbEstado.setValue(String.valueOf(prov.getContrato()));
+        cbCodigoPostal.setValue(prov.getCodigoProv());
+        txtTelefonoProv.setText(prov.getTelefonoProv());
+        txtEmailProv.setText(prov.getEmailProv());
     }
 
     @FXML
-    private void eventcodigoPostal(ActionEvent event) {
-        
-         if(cbCodigoPostal.getValue()!=null){
-           Models.ConsultaCodigosPostales mc=new Models.ConsultaCodigosPostales();
+    private void eventcodigoPostal(ActionEvent event){
+        if(cbCodigoPostal.getValue()!=null){
+            Models.ConsultaCodigosPostales mc=new Models.ConsultaCodigosPostales();
             ArrayList<String> datos=new ArrayList<>();
             datos=mc.getMunicipios(cbCodigoPostal.getValue());
-             cbCiudadProveedor.getItems().clear();
-             cbCiudadProveedor.setValue(datos.get(0));
+            cbCiudadProveedor.getItems().clear();
+            cbCiudadProveedor.setValue(datos.get(0));
             for (int i = 0; i <datos.size(); i++) {
-                  cbCiudadProveedor.getItems().add(datos.get(i));
-                        
+                  cbCiudadProveedor.getItems().add(datos.get(i));         
             }
-             AñadirColonias();
-         }
+            AñadirColonias();
+        }
     }
 
     @FXML
-    private void eventCiudad(ActionEvent event) {
-        
+    private void eventCiudad(ActionEvent event){  
         
     }
 
     @FXML
-    private void btnGuardarClick(ActionEvent event) {
+    private void btnGuardarClick(ActionEvent event){
         Models.ModelProveedores proveedores = new Models.ModelProveedores();
         String mensageE ="Campo: ";
         if(txtNombreProv.getText().equals("")){
@@ -368,57 +320,51 @@ public class ModificarProveedorController implements Initializable {
             proveedores.setColoniaProv(cbColonia.getValue());
             proveedores.setCalleProv(txtCalle.getText());
             proveedores.setContrato(cbEstado.getValue());
-            //proveedores.agregarProveedor();
             proveedores.modificarProveedor();
-            lblError.setText("Agregado bien chido");
-           Limpiar();
+            lblError.setText("Agregado correcto");
+            Limpiar();
         }
     }
 
     @FXML
-    private void eventValidarBusqueda(KeyEvent event) {
-         String c=event.getCharacter();
-             
-         if(rbIdProv.isSelected()){
-            if(!Character.isDigit(c.charAt(0))) 
-            { 
-            //  getToolkit().beep(); 
-               
-              event.consume(); 
-               
-              lblError.setText("Ingresa Solo numeros"); 
-               lblError.setVisible(true);
+    private void eventValidarBusqueda(KeyEvent event){
+        String c=event.getCharacter();
+        if(rbIdProv.isSelected()){
+            if(!Character.isDigit(c.charAt(0))){ 
+                event.consume(); 
+                lblError.setText("Ingresa solo números"); 
+                lblError.setVisible(true);
                 setBanCon(true);
-            }else{lblError.setVisible(false); lblError.setText(""); setBanCon(false); } 
-         }
-         else if(rbNombreProv.isSelected()){
-               
-                if(!Character.isLetter(c.charAt(0))) 
-                { 
-              //getToolkit().beep(); 
-               
-              event.consume(); 
-               setBanCon(true);
-              lblError.setText("Ingresa Solo letras"); 
-              lblError.setVisible(true);
-              } else {lblError.setVisible(false); 
-                 lblError.setText(""); setBanCon(false); }
-         }
+            }
+            else{
+                lblError.setVisible(false); lblError.setText(""); setBanCon(false); 
+            } 
+        }
+        else if(rbNombreProv.isSelected()){
+            if(!Character.isLetter(c.charAt(0))){
+                event.consume(); 
+                setBanCon(true);
+                lblError.setText("Ingresa solo letras"); 
+                lblError.setVisible(true);
+            } 
+            else{
+                lblError.setVisible(false); 
+                lblError.setText(""); setBanCon(false); 
+            }
+        }
     }
 
     /**
      * @return the banCon
      */
-    public boolean isBanCon() {
+    public boolean isBanCon(){
         return banCon;
     }
 
     /**
      * @param banCon the banCon to set
      */
-    public void setBanCon(boolean banCon) {
+    public void setBanCon(boolean banCon){
         this.banCon = banCon;
     }
-
-
 }

@@ -16,121 +16,95 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author lalo
+ * @author 
  */
 public class CRUD {
     private  Connection con=null;
     
-    
     public  void insertar(String query){
         Statement statement = null;
-        
         try {
-            
             ConexionBD db=new ConexionBD();
             con=db.setConnection();
-          statement = (Statement) con.createStatement();
-        //"insert into usuarios (nombre,puesto) values('pedro','mesero')"
-            System.out.println("que tiene query?? " +query);  
-          statement.execute(query);
-          con.close();
-          db.closed();
-            
-         
-        
-        } catch (SQLException ex) {
+            statement = (Statement) con.createStatement();  
+            statement.execute(query);
+            con.close();
+            db.closed();
+        } 
+        catch (SQLException ex){
             Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     public  ResultSet Consulta(String query)
     {
-       Statement statement = null;
+        Statement statement = null;
         ResultSet registro = null;
-      
-        try 
-        {
+        try{
             ConexionBD db=new ConexionBD();
             con=db.setConnection();
-           
             PreparedStatement st = con.prepareStatement(query);
             registro = st.executeQuery(query);
-            //st.close();
-         //   con.close();
-          //  db.closed();
-            
-          
-        } catch (SQLException ex) 
-        {
+        } 
+        catch (SQLException ex){
             Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //"select * from usuarios where id=1"
-        //"select * from usuarios where id=1"
-       
         return registro;
-        
     }
     
      public void Actualizar(String query)
     {
         Statement statement=null;
-        try 
-        {
-             ConexionBD db=new ConexionBD();
+        try{
+            ConexionBD db=new ConexionBD();
             con=db.setConnection();
-          statement = (Statement) con.createStatement();
-        //"insert into usuarios (nombre,puesto) values('pedro','mesero')"
+            statement = (Statement) con.createStatement();
             statement.executeUpdate(query);
             System.out.println("Actualización correcta");
             con.close();
             db.closed();
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex){
             Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
      
      public void Borrar(String query){
         Statement statement=null;
-        try 
-        {
+        try{
             ConexionBD db=new ConexionBD();
             con=db.setConnection();
             statement = (Statement) con.createStatement();
-        //"insert into usuarios (nombre,puesto) values('pedro','mesero')"
             statement.execute(query);
-            System.out.println("Eliminacion correcta");
+            System.out.println("Eliminación correcta");
             con.close();
             db.closed();
-        } catch (SQLException ex) {
+        } 
+        catch (SQLException ex){
             Logger.getLogger(CRUD.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        } 
     }
-     public ResultSet setCall(String llamada)
-    {
+    
+    public ResultSet setCall(String llamada){
         CallableStatement cs = null;
         ConexionBD db=new  ConexionBD();
         con = db.setConnection();
         ResultSet rs;
-        try {
-             String preparo="{"+llamada+"}";
-             System.out.println("la llamada es "+preparo);
-             cs = con.prepareCall(preparo);
-           
+        try{
+            String preparo="{"+llamada+"}";
+            cs = con.prepareCall(preparo);
             cs.execute();
             rs = cs.getResultSet();
-                System.out.println("lo mando llamar :D");
-                
-            
-            
-        } catch (Exception e) {
-            System.out.println("Error Excepcion");
+              
+        } 
+        catch (Exception e){
+            System.out.println("Error de excepción");
             e.printStackTrace();
             return null;
-        }finally{
-        //closed();
+        }
+        finally{
+            
         }  
        return rs;
     }
-
 }

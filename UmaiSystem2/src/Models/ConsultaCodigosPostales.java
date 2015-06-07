@@ -12,92 +12,66 @@ import java.util.ArrayList;
  *
  * @author 
  */
-public class ConsultaCodigosPostales {
-    
-    
+public class ConsultaCodigosPostales{ 
     public ArrayList getcodigosPostales()
     {
         CRUD cr=new CRUD();
-        
         ArrayList<String> datos= new ArrayList<String>();
         try {
-             ResultSet rs=cr.setCall("call consultaCodigoPostal()");
-                     
-                   
-                while(rs.next())
-                {
-                   // System.out.println("ultima id"+ rs.getString("idRec"));
-                    datos.add(rs.getString("CodigoPostal"));
-                 
-                  //  return Integer.parseInt(rs.getString("idRec"));
-                }
-            
-            
-        } catch (Exception e) {
-            System.out.println("Error Excepcion");
+            ResultSet rs=cr.setCall("call consultaCodigoPostal()");
+            while(rs.next()){
+                datos.add(rs.getString("CodigoPostal"));
+            }
+        } 
+        catch (Exception e){
+            System.out.println("Error de excepción");
             e.printStackTrace();
             return null;
-        }finally{
-        //closed();
+        }
+        finally{
+            
         }  
-       return datos;
+        return datos;
     }
 
-     public ArrayList getMunicipios(String codigos)
-    {
+    public ArrayList getMunicipios(String codigos){
         CRUD cr=new CRUD();
-        
         ArrayList<String> datos= new ArrayList<String>();
-        try {
-             ResultSet rs=cr.setCall("call consultaMunicipios('"+codigos+"')");
-             
-                     
-                   
-                while(rs.next())
-                {
-                   // System.out.println("ultima id"+ rs.getString("idRec"));
-                    datos.add(rs.getString(1));
-                 
-                  //  return Integer.parseInt(rs.getString("idRec"));
-                }
-            
-            
-        } catch (Exception e) {
-            System.out.println("Error Excepcion");
+        try{
+            ResultSet rs=cr.setCall("call consultaMunicipios('"+codigos+"')");
+            while(rs.next()){
+                datos.add(rs.getString(1));
+            }
+        } 
+        catch (Exception e){
+            System.out.println("Error de excepción");
             e.printStackTrace();
             return null;
-        }finally{
-        //closed();
-        }  
-       return datos;
-    }
-     public ArrayList getColonias(String municipio)
-    {
-        CRUD cr=new CRUD();
-        
-        ArrayList<String> datos= new ArrayList<String>();
-        try {
-             ResultSet rs=cr.setCall("call consultaColonias('"+municipio+"')");
-             
-                     
-                   
-                while(rs.next())
-                {
-                   // System.out.println("ultima id"+ rs.getString("idRec"));
-                    datos.add(rs.getString("Colonia"));
-                 
-                  //  return Integer.parseInt(rs.getString("idRec"));
-                }
+        }
+        finally{
             
-            
-        } catch (Exception e) {
-            System.out.println("Error Excepcion");
-            e.printStackTrace();
-            return null;
-        }finally{
-        //closed();
         }  
-       return datos;
+        return datos;
     }
     
+    public ArrayList getColonias(String municipio)
+    {
+        CRUD cr=new CRUD();
+        ArrayList<String> datos= new ArrayList<String>();
+        try {
+            ResultSet rs=cr.setCall("call consultaColonias('"+municipio+"')");
+            while(rs.next()){
+                datos.add(rs.getString("Colonia"));
+            } 
+        } 
+        catch (Exception e){
+            System.out.println("Error de excepción");
+            e.printStackTrace();
+            return null;
+        }
+        finally{
+            
+        }  
+       return datos;
+    }
 }

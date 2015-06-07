@@ -25,15 +25,16 @@ import javafx.scene.layout.GridPane;
 /**
  * FXML Controller class
  *
- * @author :D
+ * @author 
  */
-public class ConsultarProveedorController implements Initializable {
+public class ConsultarProveedorController implements Initializable{
     /**
      * @return the data
      */
-    public static ObservableList getData() {
+    public static ObservableList getData(){
         return data;
     }
+    
     @FXML
     private RadioButton rbNombreProv;
     @FXML
@@ -72,12 +73,13 @@ public class ConsultarProveedorController implements Initializable {
     private TextField txtColoniaProv;
     @FXML
     private TextField txtEstadoProv;
-        private boolean banCon=false;
+    private boolean banCon=false;
+    
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb){
         txtBuscarProv.textProperty().addListener(new ChangeListener<String>(){
             @Override
             public void changed(ObservableValue<? extends String> observable,String oldValue, String newValue){
@@ -94,13 +96,11 @@ public class ConsultarProveedorController implements Initializable {
     @FXML
     private void rbNombreClick(ActionEvent event) {
         Limpiar();
-        
     }
 
     @FXML
     private void rbIdClick(ActionEvent event) {
         Limpiar();
-        
     }
 
     @FXML
@@ -112,54 +112,52 @@ public class ConsultarProveedorController implements Initializable {
             if(!txtBuscarProv.getText().equals("")){
                 getData().clear();
                 if(!isBanCon()){
-                if(prov.ConsultarNombre(0, lstBuscarProv, data, txtBuscarProv.getText())){
-                 lstBuscarProv.setVisible(true);
-                 lstBuscarProv.getSelectionModel().selectedIndexProperty().addListener(
-                         new ChangeListener<Number>(){
-                             @Override
-                             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue){
-                                 int valor = (int) newValue;
-                                 if(valor>=0){
-                                     ModelProveedores nodo = (ModelProveedores) list.get(valor);
-                                     vaciarDatosTxt(nodo);
-                                     gridContenedor.setVisible(true);
-                                     lstBuscarProv.setVisible(false);
-                                 }
-                             }
-                         });
+                    if(prov.ConsultarNombre(0, lstBuscarProv, data, txtBuscarProv.getText())){
+                        lstBuscarProv.setVisible(true);
+                        lstBuscarProv.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+                            @Override
+                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue){
+                                int valor = (int) newValue;
+                                if(valor>=0){
+                                    ModelProveedores nodo = (ModelProveedores) list.get(valor);
+                                    vaciarDatosTxt(nodo);
+                                    gridContenedor.setVisible(true);
+                                    lstBuscarProv.setVisible(false);
+                                }
+                            }
+                        });
+                    }
+                    else{
+                        lstBuscarProv.setVisible(false);
+                        gridContenedor.setVisible(false);
+                    }
                 }
-                else{
-                    lstBuscarProv.setVisible(false);
-                    gridContenedor.setVisible(false);
-                }
-            }
             }
         }
         else if(rbIdProv.isSelected()){
             if(!txtBuscarProv.getText().equals("")){
                 getData().clear();
                 if(!isBanCon()){
-                if(prov.ConsultarID(0, lstBuscarProv, data, Integer.parseInt(txtBuscarProv.getText()))){
-                    lstBuscarProv.setVisible(true);
-                    lstBuscarProv.getSelectionModel().selectedIndexProperty().addListener(
-                          new ChangeListener<Number>(){
-                              @Override
-                              public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue){
-                                  int valor = (int) newValue;
-                                  if(valor>=0){
-                                      ModelProveedores nodo = (ModelProveedores) list.get(valor);
-                                      vaciarDatosTxt(nodo);
-                                      gridContenedor.setVisible(true);
-                                      lstBuscarProv.setVisible(false);
-                                  }
-                              }
-                          });
+                    if(prov.ConsultarID(0, lstBuscarProv, data, Integer.parseInt(txtBuscarProv.getText()))){
+                        lstBuscarProv.setVisible(true);
+                        lstBuscarProv.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+                            @Override
+                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue){
+                                int valor = (int) newValue;
+                                if(valor>=0){
+                                    ModelProveedores nodo = (ModelProveedores) list.get(valor);
+                                    vaciarDatosTxt(nodo);
+                                    gridContenedor.setVisible(true);
+                                    lstBuscarProv.setVisible(false);
+                                }
+                            }
+                        });
+                    }
+                    else{
+                        lstBuscarProv.setVisible(false);
+                        gridContenedor.setVisible(false);
+                    }
                 }
-                else{
-                    lstBuscarProv.setVisible(false);
-                    gridContenedor.setVisible(false);
-                }
-            }
             }
         }
     }
@@ -180,7 +178,7 @@ public class ConsultarProveedorController implements Initializable {
         return lstBuscarProv;
     }
 
-    public void setList(ObservableList li) {
+    public void setList(ObservableList li){
         list = li;
     }
     
@@ -196,53 +194,41 @@ public class ConsultarProveedorController implements Initializable {
         txtIdProv.setText("");
         txtBuscarProv.setText("");
     }
-
-    
-    
     
     /**
      * @return the banCon
      */
-    public boolean isBanCon() {
+    public boolean isBanCon(){
         return banCon;
     }
 
     /**
      * @param banCon the banCon to set
      */
-    public void setBanCon(boolean banCon) {
+    public void setBanCon(boolean banCon){
         this.banCon = banCon;
     }
 
     @FXML
-    private void eventValidarBusqueda(KeyEvent event) {
-             String c=event.getCharacter();
-             
-         if(rbIdProv.isSelected()){
-            if(!Character.isDigit(c.charAt(0))) 
-            { 
-            //  getToolkit().beep(); 
-               
-              event.consume(); 
+    private void eventValidarBusqueda(KeyEvent event){
+        String c=event.getCharacter();
+        if(rbIdProv.isSelected()){
+            if(!Character.isDigit(c.charAt(0))){
+                event.consume(); 
                 setBanCon(true);
-              
-               
-            }else{
+            }
+            else{
                 setBanCon(false);
             } 
-         }
-         else if(rbNombreProv.isSelected()){
-               
-                if(!Character.isLetter(c.charAt(0))) 
-                { 
-              //getToolkit().beep(); 
-               
-              event.consume(); 
-                    setBanCon(true);
-             
-              } else{
-                    setBanCon(false);
-                }
-         }
+        }
+        else if(rbNombreProv.isSelected()){
+            if(!Character.isLetter(c.charAt(0))){ 
+                event.consume(); 
+                setBanCon(true);
+            } 
+            else{
+                setBanCon(false);
+            }
+        }
     }
 }

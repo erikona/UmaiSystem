@@ -22,19 +22,17 @@ import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
- * @author erika
+ * @author 
  */
-public class AgregarUsuariosController implements Initializable {
+public class AgregarUsuariosController implements Initializable{
     @FXML
     private TextField txtNomUsu;
-    
     @FXML
     private TextField txtTelefonoUsu;
     @FXML
     private TextField txtSueldoUsu;
     @FXML
     private TextField txtPuntosUsu;
-    
     @FXML
     private Label lblError;
     @FXML
@@ -53,151 +51,133 @@ public class AgregarUsuariosController implements Initializable {
     private TextField txtCalle;
     @FXML
     private ComboBox<Integer> cbPermiso;
+    
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-      ArrayList<String> datosCod = new ArrayList<String>();
-       // Models.ModelUsuarios msu=new ModelUsuarios();
-      Models.ConsultaCodigosPostales mc=new Models.ConsultaCodigosPostales();
+    public void initialize(URL url, ResourceBundle rb){
+        ArrayList<String> datosCod = new ArrayList<String>();
+        Models.ConsultaCodigosPostales mc=new Models.ConsultaCodigosPostales();
         datosCod=mc.getcodigosPostales();
         for (int i = 0; i <datosCod.size(); i++) {
-              cbCodigoPostal.getItems().add(datosCod.get(i));
+            cbCodigoPostal.getItems().add(datosCod.get(i));
         }
-       /*Models.CRUD cr= new Models.CRUD();
-       
-          ResultSet resul=null;  
-            resul=(ResultSet) cr.Consulta("Select CodigoPostal from CodigosPostales where Estado='Jalisco'");
-            
-            try {
-                  
-                while(resul.next()){
-                        cbCodigoPostal.getItems().add(resul.getString(1));
-                }   
-                resul.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(AgregarUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
-           }
-         */  
-            cbPermiso.getItems().addAll(1,2,3);
-        txtNomUsu.textProperty().addListener(new ChangeListener<String>(){
+        cbPermiso.getItems().addAll(1,2,3);
         
+        txtNomUsu.textProperty().addListener(new ChangeListener<String>(){
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("^[A-Za-z]*(\\s?[A-Za-z]*)*") && newValue.length()<30){
-                txtNomUsu.setText(newValue);
-            }
-            else
-            {
-                txtNomUsu.setText(oldValue);
-            }
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
+                if(newValue.matches("^[A-Za-z]*(\\s?[A-Za-z]*)*") && newValue.length()<30){
+                    txtNomUsu.setText(newValue);
+                }
+                else{
+                    txtNomUsu.setText(oldValue);
+                }
             }
         });
-        txtContra.textProperty().addListener(new ChangeListener<String>() {
-
+        
+        txtContra.textProperty().addListener(new ChangeListener<String>(){
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-           if(newValue.matches(".*") && newValue.length()<30){
-                txtContra.setText(newValue);
-            }
-            else
-            {
-                txtContra.setText(oldValue);
-            }
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
+                if(newValue.matches(".*") && newValue.length()<30){
+                    txtContra.setText(newValue);
+                }
+                else{
+                    txtContra.setText(oldValue);
+                }
             }
         });
         
         txtCalle.textProperty().addListener(new ChangeListener<String>(){
-
-             @Override
-             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
                 if(newValue.matches("([A-Za-z0-9]*\\s?)*#?[A-Za-z0-9]*") && newValue.length()<50){
-                    
                     txtCalle.setText(newValue);
-                }else{
+                }
+                else{
                     txtCalle.setText(oldValue);
                 }
-             }
-            
+            }
         });
-        
-        
         
         txtTelefonoUsu.textProperty().addListener(new ChangeListener<String>(){
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
                 if(newValue.matches("[0-9]*")&& newValue.length()<20){
                     txtTelefonoUsu.setText(newValue);
-                }else{
+                }
+                else{
                     txtTelefonoUsu.setText(oldValue);
                 }
-             }
+            }
         });
+        
         txtSueldoUsu.textProperty().addListener(new ChangeListener<String>(){
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(newValue.matches("[0-9]*") ){
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
+                if(newValue.matches("[0-9]*")){
                     txtSueldoUsu.setText(newValue);
-                }else{
+                }
+                else{
                     txtSueldoUsu.setText(oldValue);
                 }
-             }
+            }
         });
+        
         txtPuntosUsu.textProperty().addListener(new ChangeListener<String>(){
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
                 if(newValue.matches("[0-9]*")){
                     txtPuntosUsu.setText(newValue);
-                }else{
+                }
+                else{
                     txtPuntosUsu.setText(oldValue);
                 }
-             }
+            }
         });
-     
-    }   
+    } 
+    
     @FXML
-    private void btnCancelarClick(ActionEvent event) {
+    private void btnCancelarClick(ActionEvent event){
+        
     }
 
     @FXML
-    private void btnAceptarClick(ActionEvent event) 
-    {
+    private void btnAceptarClick(ActionEvent event){
         Models.ModelUsuarios usuarios=new Models.ModelUsuarios();
         String mensageE="Campo: ";
-          if(txtNomUsu.getText().equals("")){
-              mensageE+="Nombre";
-          }
-          if(txtContra.getText().equals("")){
-              mensageE+=", Contraseña";
-          }
-          if(txtCalle.getText().equals("")){
-              mensageE+=", Calle";
-          }
-          if(cbColonia.getValue()==null){
-              mensageE+=", Colonia";
-          }
-         if(cbCiudad.getValue()==null){
-              mensageE+=", Ciudad";
-          }
-         if(cbCodigoPostal.getValue()==null){
-              mensageE+=", C.P.";
-          }
-         if(txtTelefonoUsu.getText().equals("")){
-              mensageE+=", Telefono";
-          }
-         if(txtSueldoUsu.getText().equals("")){
-              mensageE+=", Sueldo";
-          }
-         if(txtPuntosUsu.getText().equals("")){
-              mensageE+=", Puntuación";
-          }
-         if(cbPermiso.getValue()==null){
-              mensageE+=", Permiso";
-          }
-         
-          mensageE+=" vacio";
-          lblError.setText(mensageE);
-          lblError.setVisible(true);
-           if(   !txtNomUsu.getText().equals("")
+        if(txtNomUsu.getText().equals("")){
+            mensageE+="Nombre";
+        }
+        if(txtContra.getText().equals("")){
+            mensageE+=", Contraseña";
+        }
+        if(txtCalle.getText().equals("")){
+            mensageE+=", Calle";
+        }
+        if(cbColonia.getValue()==null){
+            mensageE+=", Colonia";
+        }
+        if(cbCiudad.getValue()==null){
+            mensageE+=", Ciudad";
+        }
+        if(cbCodigoPostal.getValue()==null){
+            mensageE+=", C.P.";
+        }
+        if(txtTelefonoUsu.getText().equals("")){
+            mensageE+=", Telefono";
+        }
+        if(txtSueldoUsu.getText().equals("")){
+            mensageE+=", Sueldo";
+        }
+        if(txtPuntosUsu.getText().equals("")){
+            mensageE+=", Puntuación";
+        }
+        if(cbPermiso.getValue()==null){
+            mensageE+=", Permiso";
+        }
+        mensageE+=" vacio";
+        lblError.setText(mensageE);
+        lblError.setVisible(true);
+        if(!txtNomUsu.getText().equals("")
            && !txtContra.getText().equals("")
            && !txtCalle.getText().equals("")
            && cbColonia.getValue()!=null
@@ -206,24 +186,20 @@ public class AgregarUsuariosController implements Initializable {
            && !txtTelefonoUsu.getText().equals("")
            && !txtSueldoUsu.getText().equals("")
            && !txtPuntosUsu.getText().equals("") 
-           && cbPermiso.getValue()!=null
-           
-          )
-        {
-        usuarios.setNombreUsu(txtNomUsu.getText());
-        usuarios.setContraseñaUsu(txtContra.getText());
-        usuarios.setCalleUsu(txtCalle.getText());
-        usuarios.setColoUsu( cbColonia.getValue());
-        usuarios.setCiudUsu(cbCiudad.getValue());
-        usuarios.setCodigoPostal(cbCodigoPostal.getValue());
-        usuarios.setTelefonoUsu(txtTelefonoUsu.getText());
-        usuarios.setSueldoUsu(Integer.parseInt(txtSueldoUsu.getText()));
-        usuarios.setPuntosUsu(Integer.parseInt(txtPuntosUsu.getText()));
-        usuarios.setTipoPermiso(cbPermiso.getValue());
-        
-           // System.out.println("que tiene codigo postal  "+cbCodigoPostal.getValue());
+           && cbPermiso.getValue()!=null){
             
+            usuarios.setNombreUsu(txtNomUsu.getText());
+            usuarios.setContraseñaUsu(txtContra.getText());
+            usuarios.setCalleUsu(txtCalle.getText());
+            usuarios.setColoUsu( cbColonia.getValue());
+            usuarios.setCiudUsu(cbCiudad.getValue());
+            usuarios.setCodigoPostal(cbCodigoPostal.getValue());
+            usuarios.setTelefonoUsu(txtTelefonoUsu.getText());
+            usuarios.setSueldoUsu(Integer.parseInt(txtSueldoUsu.getText()));
+            usuarios.setPuntosUsu(Integer.parseInt(txtPuntosUsu.getText()));
+            usuarios.setTipoPermiso(cbPermiso.getValue());
             usuarios.agregarUsuarios();
+
             lblError.setText("Agregado Correcto");
             txtNomUsu.setText("");
             txtContra.setText("");
@@ -235,133 +211,83 @@ public class AgregarUsuariosController implements Initializable {
             txtSueldoUsu.setText("");
             txtPuntosUsu.setText("");
             cbPermiso.setValue(0);
-    }
-    }
-
-    @FXML
-    private void txtNomUsuarioClick(ActionEvent event) {
-    }
-
-
-    @FXML
-    private void txtTelefonoUsuClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void txtSueldoUsuClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void txtPuntosUsuClick(ActionEvent event) {
-    
-    
-    }
-
-    @FXML
-    private void eventCodigoPostal(ActionEvent event) {
-        
-        if(cbCodigoPostal.getValue()!=null){
-           Models.ConsultaCodigosPostales mc=new Models.ConsultaCodigosPostales();
-            ArrayList<String> datos=new ArrayList<>();
-            datos=mc.getMunicipios(cbCodigoPostal.getValue());
-             cbCiudad.getItems().clear();
-             cbCiudad.setValue(datos.get(0));
-            for (int i = 0; i <datos.size(); i++) {
-                  cbCiudad.getItems().add(datos.get(i));
-                        
-            }
-             AñadirColonias();
-            /*
-            Models.CRUD cr= new Models.CRUD();
-          ResultSet resul=null;  
-            resul=(ResultSet) cr.Consulta("Select Municipio from CodigosPostales where CodigoPostal='"+cbCodigoPostal.getValue() +"'");
-            cbCiudad.getItems().clear();
-            try {
-                  
-                while(resul.next()){
-                      cbCiudad.getItems().add(resul.getString(1));
-                        cbCiudad.setValue(resul.getString(1));
-                }
-                resul.close();
-               AñadirColonias();
-            } catch (SQLException ex) {
-                Logger.getLogger(AgregarUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
-           }
-           */
         }
     }
+
+    @FXML
+    private void txtNomUsuarioClick(ActionEvent event){
+        
+    }
+
+    @FXML
+    private void txtTelefonoUsuClick(ActionEvent event){
+        
+    }
+
+    @FXML
+    private void txtSueldoUsuClick(ActionEvent event){
+        
+    }
+
+    @FXML
+    private void txtPuntosUsuClick(ActionEvent event){    
     
-    
+    }
+
+    @FXML
+    private void eventCodigoPostal(ActionEvent event){
+        if(cbCodigoPostal.getValue()!=null){
+            Models.ConsultaCodigosPostales mc=new Models.ConsultaCodigosPostales();
+            ArrayList<String> datos=new ArrayList<>();
+            datos=mc.getMunicipios(cbCodigoPostal.getValue());
+            cbCiudad.getItems().clear();
+            cbCiudad.setValue(datos.get(0));
+            for (int i = 0; i <datos.size(); i++){
+                cbCiudad.getItems().add(datos.get(i));       
+            }
+            AñadirColonias();
+        }
+    }
+     
     public void AñadirColonias(){
         if(cbCiudad.getValue()!=null){
             Models.ConsultaCodigosPostales mc=new Models.ConsultaCodigosPostales();
             ArrayList<String> datos=new ArrayList<>();
             datos.clear();
             datos=mc.getColonias(cbCiudad.getValue());
-             cbColonia.getItems().clear();
-                //cbColonia.setValue(datos.get(0));
-                  String [] Colon=null;
-                  Colon=separarColonias(datos.get(0));
-                  cbColonia.setValue(Colon[0]);
-            for (int i = 0; i <datos.size(); i++) {
-                 String temp=datos.get(i);
-                    Colon=separarColonias(temp);
-                     for (int j = 0; j <Colon.length; j++) {
+            cbColonia.getItems().clear();
+            String [] Colon=null;
+            Colon=separarColonias(datos.get(0));
+            cbColonia.setValue(Colon[0]);
+            for(int i = 0; i <datos.size(); i++){
+                String temp=datos.get(i);
+                Colon=separarColonias(temp);
+                for(int j = 0; j <Colon.length; j++){
                     cbColonia.getItems().add(Colon[j]);
                 }
-                // cbColonia.getItems().add(datos.get(i));
-                // System.out.println("colonia: "+datos.get(i));
             }
-            /*
-            Models.CRUD cr= new Models.CRUD();
-          ResultSet resul=null;  
-            resul=(ResultSet) cr.Consulta("Select Colonia from CodigosPostales where Municipio='"+cbCiudad.getValue() +"'");
-            String [] Colon=null;
-            try {
-                   cbColonia.getItems().clear();
-                while(resul.next()){
-                    String temp=resul.getString(1);
-                    Colon=separarColonias(temp);
-                   
-                    //cbColonia.getItems().add(resul.getString(1));
-                    cbColonia.setValue(Colon[0]);
-                for (int i = 0; i <Colon.length; i++) {
-                    cbColonia.getItems().add(Colon[i]);
-                }
-                }
-                
-                resul.close();
-                
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(AgregarUsuariosController.class.getName()).log(Level.SEVERE, null, ex);
-           }
-          */ 
         }
     }
 
     @FXML
-    private void eventCiudad(ActionEvent event) {
+    private void eventCiudad(ActionEvent event){
       
     }
 
     @FXML
-    private void eventColonia(ActionEvent event) {
-        
-        
+    private void eventColonia(ActionEvent event){
+           
     }
 
     @FXML
-    private void eventPermiso(ActionEvent event) {
+    private void eventPermiso(ActionEvent event){
     }
 
-     public static String[] separarColonias(String texto)
-    {
+    public static String[] separarColonias(String texto){
         java.util.StringTokenizer tokens = new java.util.StringTokenizer(texto,";",false);
         String separados[]=new String[tokens.countTokens()];
         int i=0;
-        while (tokens.hasMoreTokens()) 
-        {
+        while (tokens.hasMoreTokens()) {
             separados[i]=tokens.nextToken();
             i++;
         }

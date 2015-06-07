@@ -28,7 +28,7 @@ import javafx.scene.layout.HBox;
 /**
  * FXML Controller class
  *
- * @author lalo
+ * @author 
  */
 public class EliminarUsuariosController implements Initializable {
     @FXML
@@ -45,7 +45,6 @@ public class EliminarUsuariosController implements Initializable {
     private Button btnCancelar;
     @FXML
     private Button btnDesactivar;
-   
     @FXML
     private ToggleGroup GrupoEliminar;
     @FXML
@@ -54,6 +53,7 @@ public class EliminarUsuariosController implements Initializable {
     private Label lblMensaje;
     @FXML
     private HBox ContenedorDatos;
+    
     public static final ObservableList names = 
          FXCollections.observableArrayList();
      private static final ObservableList data = 
@@ -68,47 +68,42 @@ public class EliminarUsuariosController implements Initializable {
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    txtBuscarUsu.textProperty().addListener(new ChangeListener<String>(){
-        
+    public void initialize(URL url, ResourceBundle rb){
+        txtBuscarUsu.textProperty().addListener(new ChangeListener<String>(){
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("[^'\"]*")){
-                txtBuscarUsu.setText(newValue);
-            }
-            else
-            {
-                txtBuscarUsu.setText(oldValue);
-            }
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
+                if(newValue.matches("[^'\"]*")){
+                    txtBuscarUsu.setText(newValue);
+                }
+                else{
+                    txtBuscarUsu.setText(oldValue);
+                }
             }
         });
-   
-    }    
-public static ObservableList getData() {
+    } 
+    
+    public static ObservableList getData(){
         return data;
     }
+    
     @FXML
-    private void rbNombUsuClick(ActionEvent event) {
-        
+    private void rbNombUsuClick(ActionEvent event){
         Limpiar();
-     
+    }
+
+    @FXML
+    private void rbIdUsuClick(ActionEvent event){
+        Limpiar();
+    }
+
+    @FXML
+    private void btnCancelarClick(ActionEvent event){
         
     }
 
     @FXML
-    private void rbIdUsuClick(ActionEvent event) {
-         Limpiar();
-      
-    }
-
-
-    @FXML
-    private void btnCancelarClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void btnDesactivarClick(ActionEvent event) {
-    if(!txtBuscarUsu.getText().equals("") && !txtIdUsu.getText().equals("")){
+    private void btnDesactivarClick(ActionEvent event){
+        if(!txtBuscarUsu.getText().equals("") && !txtIdUsu.getText().equals("")){
             Models.ModelUsuarios mProd=new Models.ModelUsuarios();
             mProd.eliminarUsuario(Integer.parseInt(txtIdUsu.getText()));
             lblMensaje.setText("Modificacion Correcta");
@@ -120,158 +115,122 @@ public static ObservableList getData() {
     }
 
     @FXML
-    private void eventBuscarEliminar(KeyEvent event) {
+    private void eventBuscarEliminar(KeyEvent event){
         Models.ModelUsuarios usu=new Models.ModelUsuarios();
-         ContenedorDatos.setVisible(false);
-        
-         if(rbNombUsu.isSelected())
-         {
+        ContenedorDatos.setVisible(false);
+        if(rbNombUsu.isSelected()){
             if(!txtBuscarUsu.getText().equals("")){
                 getData().clear();
                 if(!isBanConsul()){
-                if(usu.ConsultarNombreEliminar(lstContenedorConsulta,data,txtBuscarUsu.getText())){
-                   
-                lstContenedorConsulta.setVisible(true);  
-                //gridContenedorDatos.setVisible(true);
-                    //lblMensaje.setText("");
-                lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(
-                        new ChangeListener<Number>() {
-                             @Override
-                            public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-                                    Number newValue) {
-                               
+                    if(usu.ConsultarNombreEliminar(lstContenedorConsulta,data,txtBuscarUsu.getText())){
+                        lstContenedorConsulta.setVisible(true); 
+                        lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+                            @Override
+                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                                 int valor=(int) newValue;
-                                    if(valor>=0){
-                                   ModelUsuarios nodo=(ModelUsuarios) list.get(valor);
-                                    
+                                if(valor>=0){
+                                    ModelUsuarios nodo=(ModelUsuarios) list.get(valor);
                                     vaciarDatosTxt(nodo);
                                     ContenedorDatos.setVisible(true);
                                     lstContenedorConsulta.setVisible(false);
-                                
                                 }
                             }
                         });
-                
+                    }
+                    else{
+                        lstContenedorConsulta.setVisible(false);
+                        ContenedorDatos.setVisible(false);
+                    } 
                 }
-                else{
-                    lstContenedorConsulta.setVisible(false);
-                    ContenedorDatos.setVisible(false);
-                } 
-                
-               
-            }
             }
         }
-         else if(rbIdUsu.isSelected()){
-             if(!txtBuscarUsu.getText().equals("")){
+        else if(rbIdUsu.isSelected()){
+            if(!txtBuscarUsu.getText().equals("")){
                 getData().clear();
                 if(!isBanConsul()){
-                if(usu.consultarIDEliminar(lstContenedorConsulta,data,Integer.parseInt(txtBuscarUsu.getText()) )){
-                   
-                lstContenedorConsulta.setVisible(true);  
-                //gridContenedorDatos.setVisible(true);
-                   // lblMensaje.setText("");
-                lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(
-                        new ChangeListener<Number>() {
-                             @Override
-                            public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-                                    Number newValue) {
-                               
+                    if(usu.consultarIDEliminar(lstContenedorConsulta,data,Integer.parseInt(txtBuscarUsu.getText()))){
+                        lstContenedorConsulta.setVisible(true);
+                        lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+                            @Override
+                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                                 int valor=(int) newValue;
-                                    if(valor>=0){
-                                   ModelUsuarios nodo=(ModelUsuarios) list.get(valor);
-                                    
+                                if(valor>=0){
+                                    ModelUsuarios nodo=(ModelUsuarios) list.get(valor);
                                     vaciarDatosTxt(nodo);
                                     ContenedorDatos.setVisible(true);
                                     lstContenedorConsulta.setVisible(false);
-                                
                                 }
                             }
                         });
-                
+                    }
+                    else{
+                        lstContenedorConsulta.setVisible(false);
+                        ContenedorDatos.setVisible(false);
+                    } 
                 }
-                else{
-                    lstContenedorConsulta.setVisible(false);
-                    ContenedorDatos.setVisible(false);
-                } 
-                
-               
-             }
-           }
-         }
-        
-        
+            }
+        }  
     }
-    public ListView<?> getLstContenedorConsulta() {
-        
+    
+    public ListView<?> getLstContenedorConsulta(){
         return lstContenedorConsulta;
-        
     }
+    
     public void setList(ObservableList listt){
         list=listt;
     }
     
-     private void vaciarDatosTxt(ModelUsuarios usu) {
-       
-       
+    private void vaciarDatosTxt(ModelUsuarios usu){
         txtIdUsu.setText(String.valueOf(usu.getIdUsu()));
         txtNombreUsu.setText(usu.getNombreUsu());
-       
     }
      
-     private void Limpiar() {
-            
+    private void Limpiar(){
         txtIdUsu.setText("");
         txtBuscarUsu.setText("");
-        //.setText("");
-       txtNombreUsu.setText("");
-        
-}
+        txtNombreUsu.setText("");
+    }
 
     @FXML
-    private void eventValidarBusqueda(KeyEvent event) {
+    private void eventValidarBusqueda(KeyEvent event){
         String c=event.getCharacter();
-             
-         if(rbIdUsu.isSelected()){
-            if(!Character.isDigit(c.charAt(0))) 
-            { 
-            //  getToolkit().beep(); 
-               
-              event.consume(); 
-               
-              lblMensaje.setText("Ingresa Solo numeros"); 
-               lblMensaje.setVisible(true);
-                 setBanConsul(true);
-            }else{lblMensaje.setVisible(false); lblMensaje.setText("");  setBanConsul(false); } 
-         }
-         else if(rbNombUsu.isSelected()){
-               
-                if(!Character.isLetter(c.charAt(0))) 
-                { 
-              //getToolkit().beep(); 
-               
-              event.consume(); 
-               
-              lblMensaje.setText("Ingresa Solo letras"); 
-              lblMensaje.setVisible(true);
-                    setBanConsul(true);
-              } else {lblMensaje.setVisible(false); 
-                 lblMensaje.setText("");   setBanConsul(false);}
-         }
+        if(rbIdUsu.isSelected()){
+            if(!Character.isDigit(c.charAt(0))){ 
+                event.consume(); 
+                lblMensaje.setText("Ingresa solo números"); 
+                lblMensaje.setVisible(true);
+                setBanConsul(true);
+            }
+            else{
+                lblMensaje.setVisible(false); lblMensaje.setText("");  setBanConsul(false); 
+            } 
+        }
+        else if(rbNombUsu.isSelected()){       
+            if(!Character.isLetter(c.charAt(0))){ 
+                event.consume(); 
+                lblMensaje.setText("Ingresa Solo letras"); 
+                lblMensaje.setVisible(true);
+                setBanConsul(true);
+            } 
+            else{
+                lblMensaje.setVisible(false); 
+                lblMensaje.setText("");   
+                setBanConsul(false);
+            }
+        }
     }
 
     /**
      * @return the banConsul
      */
-    public boolean isBanConsul() {
+    public boolean isBanConsul(){
         return banConsul;
     }
 
     /**
      * @param banConsul the banConsul to set
      */
-    public void setBanConsul(boolean banConsul) {
+    public void setBanConsul(boolean banConsul){
         this.banConsul = banConsul;
     }
-
 }

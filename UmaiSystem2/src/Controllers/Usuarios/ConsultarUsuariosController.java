@@ -68,7 +68,6 @@ public class ConsultarUsuariosController implements Initializable {
     @FXML
     private ToggleGroup GrupoConsultar;
     
-
     public static final ObservableList names = 
          FXCollections.observableArrayList();
      private static final ObservableList data = 
@@ -76,152 +75,117 @@ public class ConsultarUsuariosController implements Initializable {
      
     public static  ObservableList<?> list;
     private boolean banCon=false;
-    
-     @FXML
+    @FXML
     public   ListView<String> lstContenedorConsulta;
     @FXML
     private GridPane gridContenedorDatos;
+    
      /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
+    public void initialize(URL url, ResourceBundle rb){
         txtBuscarUsu.textProperty().addListener(new ChangeListener<String>(){
-        
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("[^'\"]*")){
-                txtBuscarUsu.setText(newValue);
-            }
-            else
-            {
-                txtBuscarUsu.setText(oldValue);
-            }
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
+                if(newValue.matches("[^'\"]*")){
+                    txtBuscarUsu.setText(newValue);
+                }
+                else{
+                    txtBuscarUsu.setText(oldValue);
+                }
             }
         });
     }    
 
     @FXML
-    private void rbNombUsuClick(ActionEvent event) {
+    private void rbNombUsuClick(ActionEvent event){
         Limpiar();
-       
     }
 
     @FXML
-    private void rbIdUsuClick(ActionEvent event) {
-        
-           Limpiar();
-      
+    private void rbIdUsuClick(ActionEvent event){
+        Limpiar();
     }
 
-
     @FXML
-    private void eventBuscarConsultar(KeyEvent event) {
-         Models.ModelUsuarios usu=new Models.ModelUsuarios();
-         gridContenedorDatos.setVisible(false);
-         if(rbNombUsu.isSelected())
-         {
+    private void eventBuscarConsultar(KeyEvent event){
+        Models.ModelUsuarios usu=new Models.ModelUsuarios();
+        gridContenedorDatos.setVisible(false);
+        if(rbNombUsu.isSelected()){
             if(!txtBuscarUsu.getText().equals("")){
                 getData().clear();
                 if(!isBanCon()){
-                if(usu.ConsultarNombre(0,lstContenedorConsulta,data,txtBuscarUsu.getText())){
-                   
-                lstContenedorConsulta.setVisible(true);  
-                //gridContenedorDatos.setVisible(true);
-                 
-                lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(
-                        new ChangeListener<Number>() {
-                             @Override
-                            public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-                                    Number newValue) {
-                               
+                    if(usu.ConsultarNombre(0,lstContenedorConsulta,data,txtBuscarUsu.getText())){
+                        lstContenedorConsulta.setVisible(true);  
+                        lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+                            @Override
+                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue){
                                 int valor=(int) newValue;
-                                    if(valor>=0){
-                                   ModelUsuarios nodo=(ModelUsuarios) list.get(valor);
-                                    
+                                if(valor>=0){
+                                    ModelUsuarios nodo=(ModelUsuarios) list.get(valor);
                                     vaciarDatosTxt(nodo);
                                     gridContenedorDatos.setVisible(true);
                                     lstContenedorConsulta.setVisible(false);
-                                
                                 }
                             }
                         });
-                
-                }
-                else{
-                    lstContenedorConsulta.setVisible(false);
-                    gridContenedorDatos.setVisible(false);
-                } 
-                
+                    }
+                    else{
+                        lstContenedorConsulta.setVisible(false);
+                        gridContenedorDatos.setVisible(false);
+                    }
                 }
             }
         }
-         else if(rbIdUsu.isSelected()){
-             if(!txtBuscarUsu.getText().equals("")){
+        else if(rbIdUsu.isSelected()){
+            if(!txtBuscarUsu.getText().equals("")){
                 getData().clear();
                 if(!isBanCon()){
-                if(usu.ConsultarID(0,lstContenedorConsulta,data,Integer.parseInt(txtBuscarUsu.getText()) )){
-                   
-                lstContenedorConsulta.setVisible(true);  
-                //gridContenedorDatos.setVisible(true);
-                    
-                lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(
-                        new ChangeListener<Number>() {
-                             @Override
-                            public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-                                    Number newValue) {
-                               
+                    if(usu.ConsultarID(0,lstContenedorConsulta,data,Integer.parseInt(txtBuscarUsu.getText()))){
+                        lstContenedorConsulta.setVisible(true);  
+                        lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+                            @Override
+                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue){
                                 int valor=(int) newValue;
-                                    if(valor>=0){
-                                   ModelUsuarios nodo=(ModelUsuarios) list.get(valor);
-                                    
+                                if(valor>=0){
+                                    ModelUsuarios nodo=(ModelUsuarios) list.get(valor);
                                     vaciarDatosTxt(nodo);
                                     gridContenedorDatos.setVisible(true);
                                     lstContenedorConsulta.setVisible(false);
-                                
                                 }
                             }
                         });
-                
-                }
-                else{
-                    lstContenedorConsulta.setVisible(false);
-                    gridContenedorDatos.setVisible(false);
-                } 
-                
+                    }
+                    else{
+                        lstContenedorConsulta.setVisible(false);
+                        gridContenedorDatos.setVisible(false);
+                    }
                 }
             }
-         }
-        
+        }
     }
     
-    
-    
-    
-    private void vaciarDatosTxt(ModelUsuarios usu) {
-       
-                    txtCalleUsu.setText(usu.getCalleUsu());
-                    txtCiudadUsu.setText(usu.getCiudUsu());
-                    txtColoniaUsu.setText(usu.getColoUsu());
-                    txtContraseñaUsu.setText(usu.getContraseñaUsu());
-                    txtContratoUsu.setText(usu.getEstadoContrato());
-                    txtCpUsu.setText(usu.getCodigoPostal());
-                    txtIdUsu.setText(String.valueOf(usu.getIdUsu()));
-                    txtNomUsu.setText(usu.getNombreUsu());
-                    txtPermisoUsu.setText(String.valueOf(usu.getTipoPermiso()));
-                    txtPuntosUsu.setText(String.valueOf(usu.getPuntosUsu()));
-                    txtSueldoUsu.setText(String.valueOf(usu.getSueldoUsu()));
-                    txtTelefonoUsu.setText(usu.getTelefonoUsu());
+    private void vaciarDatosTxt(ModelUsuarios usu){
+        txtCalleUsu.setText(usu.getCalleUsu());
+        txtCiudadUsu.setText(usu.getCiudUsu());
+        txtColoniaUsu.setText(usu.getColoUsu());
+        txtContraseñaUsu.setText(usu.getContraseñaUsu());
+        txtContratoUsu.setText(usu.getEstadoContrato());
+        txtCpUsu.setText(usu.getCodigoPostal());
+        txtIdUsu.setText(String.valueOf(usu.getIdUsu()));
+        txtNomUsu.setText(usu.getNombreUsu());
+        txtPermisoUsu.setText(String.valueOf(usu.getTipoPermiso()));
+        txtPuntosUsu.setText(String.valueOf(usu.getPuntosUsu()));
+        txtSueldoUsu.setText(String.valueOf(usu.getSueldoUsu()));
+        txtTelefonoUsu.setText(usu.getTelefonoUsu());
     }
 
     /**
      * @return the lstContenedorConsulta
      */
-    public ListView<?> getLstContenedorConsulta() {
-        
+    public ListView<?> getLstContenedorConsulta(){
         return lstContenedorConsulta;
-        
     }
     public void setList(ObservableList listt){
         list=listt;
@@ -241,8 +205,8 @@ public class ConsultarUsuariosController implements Initializable {
         txtSueldoUsu.setText("");
         txtTelefonoUsu.setText("");
     }
-    private void Limpiar() {
-            
+    
+    private void Limpiar(){
         txtIdUsu.setText("");
         txtBuscarUsu.setText("");
         txtCalleUsu.setText("");
@@ -261,49 +225,39 @@ public class ConsultarUsuariosController implements Initializable {
     }
 
     @FXML
-    private void eventValidarBusqueda(KeyEvent event) {
+    private void eventValidarBusqueda(KeyEvent event){
         String c=event.getCharacter();
-             
-         if(rbIdUsu.isSelected()){
-            if(!Character.isDigit(c.charAt(0))) 
-            { 
-            //  getToolkit().beep(); 
-               
-              event.consume(); 
+        if(rbIdUsu.isSelected()){
+            if(!Character.isDigit(c.charAt(0))){
+                event.consume(); 
                 setBanCon(true);
-              
-               
-            }else{
+            }
+            else{
                 setBanCon(false);
             } 
-         }
-         else if(rbNombUsu.isSelected()){
-               
-                if(!Character.isLetter(c.charAt(0))) 
-                { 
-              //getToolkit().beep(); 
-               
-              event.consume(); 
-                    setBanCon(true);
-             
-              } else{
-                    setBanCon(false);
-                }
-         }
+        }
+        else if(rbNombUsu.isSelected()){
+            if(!Character.isLetter(c.charAt(0))){ 
+                event.consume(); 
+                setBanCon(true);
+            } 
+            else{
+                setBanCon(false);
+            }
+        }
     }
 
     /**
      * @return the banCon
      */
-    public boolean isBanCon() {
+    public boolean isBanCon(){
         return banCon;
     }
 
     /**
      * @param banCon the banCon to set
      */
-    public void setBanCon(boolean banCon) {
+    public void setBanCon(boolean banCon){
         this.banCon = banCon;
     }
-
 }

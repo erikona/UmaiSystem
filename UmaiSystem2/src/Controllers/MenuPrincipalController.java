@@ -1,4 +1,3 @@
-
 package Controllers;
 
 import java.net.URL;
@@ -13,9 +12,9 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author lalo
+ * @author
  */
-public class MenuPrincipalController implements Initializable {
+public class MenuPrincipalController implements Initializable{
     @FXML
     private Label lblNomVista;
     @FXML
@@ -54,113 +53,107 @@ public class MenuPrincipalController implements Initializable {
     private Button btnEliminarReceta1;
     @FXML
     private AnchorPane EscenaPrincipal;
-    
-    Controllers.ControllerStage cs=new Controllers.ControllerStage();
     @FXML
     private Button btnAgregarCompra;
-   
+    Controllers.ControllerStage cs=new Controllers.ControllerStage();
+    
     /**
      * Initializes the controller class.
      * @param url
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-       cs.setPaneAnchor(EscenaPrincipal);
+    public void initialize(URL url, ResourceBundle rb){
+        cs.setPaneAnchor(EscenaPrincipal);
     }    
 
     @FXML
-    private void btnAgregarUsuarioclick(ActionEvent event) 
-    {
-     cs.openNewWindow("/Views/Usuarios/AgregarUsuario.fxml");   
+    private void btnAgregarUsuarioclick(ActionEvent event){
+        cs.openNewWindow("/Views/Usuarios/AgregarUsuario.fxml");   
     }
 
     @FXML
-    private void btnConsultarUsuarioClick(ActionEvent event) {
-    cs.openNewWindow("/Views/Usuarios/ConsultarUsuario.fxml"); 
+    private void btnConsultarUsuarioClick(ActionEvent event){
+        cs.openNewWindow("/Views/Usuarios/ConsultarUsuario.fxml"); 
     }
 
     @FXML
-    private void btnModificarUsuarioClick(ActionEvent event) {
-    cs.openNewWindow("/Views/Usuarios/ModificarUsuario2.fxml"); 
+    private void btnModificarUsuarioClick(ActionEvent event){
+        cs.openNewWindow("/Views/Usuarios/ModificarUsuario2.fxml"); 
     }
 
     @FXML
-    private void btnEliminarUsuarioClick(ActionEvent event) {
+    private void btnEliminarUsuarioClick(ActionEvent event){
         cs.openNewWindow("/Views/Usuarios/EliminarUsuario.fxml"); 
     }
 
     @FXML
-    private void btnPisoVisibleClick(ActionEvent event) {
-        
+    private void btnPisoVisibleClick(ActionEvent event){
         
     }
 
     @FXML
-    private void btnAgregarProductoClick(ActionEvent event) {
-      //  cs.setPaneAnchor(EscenaPrincipal);
+    private void btnAgregarProductoClick(ActionEvent event){
         cs.openNewWindow("/Views/Productos/AgregarProducto.fxml");
     }
 
     @FXML
-    private void btnConsultarProductoClick(ActionEvent event) {
-        //cs.setPaneAnchor(EscenaPrincipal);
+    private void btnConsultarProductoClick(ActionEvent event){
         cs.openNewWindow("/Views/Productos/ConsultarProducto.fxml");
-        
     }
 
     @FXML
-    private void btnModificarProductoClick(ActionEvent event) {
-        //cs.setPaneAnchor(EscenaPrincipal);
+    private void btnModificarProductoClick(ActionEvent event){
         cs.openNewWindow("/Views/Productos/ModificarProducto2.fxml");
     }
 
     @FXML
-    private void btnEliminarProductoClick(ActionEvent event) {
-        //cs.setPaneAnchor(EscenaPrincipal);
+    private void btnEliminarProductoClick(ActionEvent event){
         cs.openNewWindow("/Views/Productos/EliminarProducto.fxml");
     }
 
     @FXML
-    private void btnAgregarProveedorClick(ActionEvent event) {
+    private void btnAgregarProveedorClick(ActionEvent event){
         cs.openNewWindow("/Views/Proveedor/AgregarProveedor.fxml");
     }
 
     @FXML
-    private void btnConsultarProveedorClick(ActionEvent event) {
+    private void btnConsultarProveedorClick(ActionEvent event){
         cs.openNewWindow("/Views/Proveedor/ConsultarProveedor.fxml");
     }
 
     @FXML
-    private void btnModificarProveedorClick(ActionEvent event) {
+    private void btnModificarProveedorClick(ActionEvent event){
         cs.openNewWindow("/Views/Proveedor/ModificarProveedor.fxml");
     }
 
     @FXML
-    private void btnEliminarProveedorClick(ActionEvent event) {
-       cs.openNewWindow("/Views/Proveedor/EliminarProveedor.fxml");
+    private void btnEliminarProveedorClick(ActionEvent event){
+        cs.openNewWindow("/Views/Proveedor/EliminarProveedor.fxml");
     }
 
     @FXML
-    private void btnAgregarRecetaClick(ActionEvent event) {
+    private void btnAgregarRecetaClick(ActionEvent event){
+        
     }
 
     @FXML
-    private void btnConsultarRecetaClick(ActionEvent event) {
+    private void btnConsultarRecetaClick(ActionEvent event){
+        
     }
 
     @FXML
-    private void btnModificarRecetaClick(ActionEvent event) {
+    private void btnModificarRecetaClick(ActionEvent event){
+        
     }
 
     @FXML
-    private void btnEliminarRecetaClick(ActionEvent event) {
+    private void btnEliminarRecetaClick(ActionEvent event){
+        
     }
 
     @FXML
-    private void btnAgregarCompraClick(ActionEvent event) {
-         cs.openNewWindow("/Views/Productos/AgregarCompras.fxml"); 
+    private void btnAgregarCompraClick(ActionEvent event){
+        cs.openNewWindow("/Views/Productos/AgregarCompras.fxml"); 
     }
-    
-    
 }

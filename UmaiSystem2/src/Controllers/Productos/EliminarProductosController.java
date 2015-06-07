@@ -29,7 +29,7 @@ import javafx.scene.layout.GridPane;
  *
  * @author
  */
-public class EliminarProductosController implements Initializable {
+public class EliminarProductosController implements Initializable{
     @FXML
     private RadioButton rbNombProd;
     @FXML
@@ -48,256 +48,209 @@ public class EliminarProductosController implements Initializable {
     private TextField txtBuscarProd;
     @FXML
     private ListView<String> lstContenedorConsulta;
-
-    
-     public static final ObservableList names = 
-         FXCollections.observableArrayList();
-     private static final ObservableList data = 
-         FXCollections.observableArrayList();
-     
-    public static  ObservableList<?> list;
     @FXML
     private GridPane gridContenedor;
     @FXML
     private Label lblMensaje;
+    
+    public static final ObservableList names = 
+        FXCollections.observableArrayList();
+    private static final ObservableList data = 
+        FXCollections.observableArrayList();
+    
+    public static  ObservableList<?> list;
     private boolean banCon=false;
+    
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb){
         txtBuscarProd.textProperty().addListener(new ChangeListener<String>(){
-        
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("[^'\"]*")){
-                txtBuscarProd.setText(newValue);
-            }
-            else
-            {
-                txtBuscarProd.setText(oldValue);
-            }
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue){
+                if(newValue.matches("[^'\"]*")){
+                    txtBuscarProd.setText(newValue);
+                }
+                else{
+                    txtBuscarProd.setText(oldValue);
+                }
             }
         });
     }    
 
     @FXML
-    private void rbNombProdClick(ActionEvent event) {
+    private void rbNombProdClick(ActionEvent event){
         Limpiar();
-       
     }
 
     @FXML
-    private void rbIdProdClick(ActionEvent event) {
+    private void rbIdProdClick(ActionEvent event){
         Limpiar();
-        
+    }
+
+    @FXML
+    private void btnCancelarClick(ActionEvent event){
         
     }
 
     @FXML
-    private void btnCancelarClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void btnEliminarClick(ActionEvent event) {
+    private void btnEliminarClick(ActionEvent event){
         try {
             Models.ModelProductos prod=new Models.ModelProductos();
-    prod.eliminarProductos(Integer.parseInt(txtIdProd.getText()));
-            lblMensaje.setText("Eliminación correcta!");
+            prod.eliminarProductos(Integer.parseInt(txtIdProd.getText()));
+            lblMensaje.setText("Eliminación correcta");
             lblMensaje.setVisible(true);
             Limpiar();
             gridContenedor.setVisible(false);
-            
-        } catch (Exception e) {
+        } 
+        catch (Exception e){
         }
-        
-    
     }
     
-
     @FXML
-    private void eventBuscarProd(KeyEvent event) {
+    private void eventBuscarProd(KeyEvent event){
         Models.ModelProductos prod=new Models.ModelProductos();
-         lblMensaje.setText("");
+        lblMensaje.setText("");
         if(rbNombProd.isSelected())
-         {
+        {
             if(!txtBuscarProd.getText().equals("")){
                 getData().clear();
-                
                 lblMensaje.setVisible(false);
                 if(!isBanCon()){
-                if(prod.ConsultarNombre(2,lstContenedorConsulta,data,txtBuscarProd.getText())){
-                   
-                lstContenedorConsulta.setVisible(true);  
-                //gridContenedorDatos.setVisible(true);
-                gridContenedor.setVisible(true);
-                lblMensaje.setText("");
-                        
-                lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(
-                        new ChangeListener<Number>() {
-                             @Override
-                            public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-                                    Number newValue) {
-                               
+                    if(prod.ConsultarNombre(2,lstContenedorConsulta,data,txtBuscarProd.getText())){
+                        lstContenedorConsulta.setVisible(true);  
+                        gridContenedor.setVisible(true);
+                        lblMensaje.setText("");
+                        lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+                            @Override
+                            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue){
                                 int valor=(int) newValue;
-                                    if(valor>=0){
-                                   ModelProductos nodo=(ModelProductos) list.get(valor);
-                                    
+                                if(valor>=0){
+                                    ModelProductos nodo=(ModelProductos) list.get(valor);
                                     vaciarDatosTxt(nodo);
                                     gridContenedor.setVisible(true);
-                                   
                                     txtIdProd.setVisible(true);
                                     txtNombreProd.setVisible(true);
-                                    
                                     lstContenedorConsulta.setVisible(false);
-                                
                                 }
                             }
                         });
-                
-                }
-                else{
-                    lstContenedorConsulta.setVisible(false);
-                    gridContenedor.setVisible(false);
-                     
-                                    txtIdProd.setVisible(false);
-                                    txtNombreProd.setVisible(false);
-                     
-                } 
-                
+                    }
+                    else{
+                        lstContenedorConsulta.setVisible(false);
+                        gridContenedor.setVisible(false);
+                        txtIdProd.setVisible(false);
+                        txtNombreProd.setVisible(false);
+                    } 
                 }
             }
         }
-         else if(rbIdProd.isSelected()){
-             if(!txtBuscarProd.getText().equals("")){
-                 
-                 if(Esdigito(txtBuscarProd.getText())){
-                getData().clear();
-                lblMensaje.setVisible(false);
-                gridContenedor.setVisible(false);
-                if(!isBanCon()){
-                if(prod.ConsultarID(2,lstContenedorConsulta,data,Integer.parseInt(txtBuscarProd.getText()) )){
-                   
-                lstContenedorConsulta.setVisible(true);  
-                lblMensaje.setText("");
-                lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(
-                        new ChangeListener<Number>() {
-                             @Override
-                            public void changed(ObservableValue<? extends Number> observable, Number oldValue,
-                                    Number newValue) {
-                               
-                                int valor=(int) newValue;
+        else if(rbIdProd.isSelected()){
+            if(!txtBuscarProd.getText().equals("")){
+                if(Esdigito(txtBuscarProd.getText())){
+                    getData().clear();
+                    lblMensaje.setVisible(false);
+                    gridContenedor.setVisible(false);
+                    if(!isBanCon()){
+                        if(prod.ConsultarID(2,lstContenedorConsulta,data,Integer.parseInt(txtBuscarProd.getText()))){
+                            lstContenedorConsulta.setVisible(true);  
+                            lblMensaje.setText("");
+                            lstContenedorConsulta.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>(){
+                                @Override
+                                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue){
+                                    int valor=(int) newValue;
                                     if(valor>=0){
-                                   ModelProductos nodo=(ModelProductos) list.get(valor);
-                                    
-                                    vaciarDatosTxt(nodo);
-                                    
-                                  gridContenedor.setVisible(true);
-                                  
-                                    txtIdProd.setVisible(true);
-                                    txtNombreProd.setVisible(true);
-                                   
-                                    lstContenedorConsulta.setVisible(false);
-                                
+                                        ModelProductos nodo=(ModelProductos) list.get(valor);
+                                        vaciarDatosTxt(nodo);
+                                        gridContenedor.setVisible(true);
+                                        txtIdProd.setVisible(true);
+                                        txtNombreProd.setVisible(true);
+                                        lstContenedorConsulta.setVisible(false);
+                                    }
                                 }
-                            }
-                        });
-                
+                            });
+                        }
+                        else{
+                            lstContenedorConsulta.setVisible(false);
+                            gridContenedor.setVisible(false);
+                            lblMensaje.setText("Sin Resultados ");
+                            lblMensaje.setVisible(true);
+                            txtIdProd.setVisible(false);
+                            txtNombreProd.setVisible(false);
+                        } 
+                    } 
                 }
-                else{
-                    lstContenedorConsulta.setVisible(false);
-                   gridContenedor.setVisible(false);
-                     lblMensaje.setText("Sin Resultados ");
-                     lblMensaje.setVisible(true);
-                     txtIdProd.setVisible(false);
-                     txtNombreProd.setVisible(false);
-                     
-                } 
-                } 
-               
             }
-         }
-        
+        }
     }
-    }
-    
-    
-    
-    public ListView<?> getLstContenedorConsulta() {
-        
+
+    public ListView<?> getLstContenedorConsulta(){
         return lstContenedorConsulta;
-        
     }
+    
     public void setList(ObservableList listt){
         list=listt;
     }
-    public static ObservableList getData() {
+    
+    public static ObservableList getData(){
         return data;
     }
     
-    private void vaciarDatosTxt(ModelProductos prod) {
-       
-                   
-                   txtIdProd.setText(String.valueOf(prod.getIdProd()));
-                   txtNombreProd.setText(prod.getNombreProd());
-                 
-                   
+    private void vaciarDatosTxt(ModelProductos prod){
+        txtIdProd.setText(String.valueOf(prod.getIdProd()));
+        txtNombreProd.setText(prod.getNombreProd());
     }
 
-    private void Limpiar() {
-            
+    private void Limpiar(){
         txtIdProd.setText("");
         txtNombreProd.setText("");
         txtBuscarProd.setText("");
     }
 
-    private boolean Esdigito(String text) {
+    private boolean Esdigito(String text){
         return text.matches("[0-9]+");
-                
-                }
+    }
 
     @FXML
-    private void eventValidarBusqueda(KeyEvent event) {
+    private void eventValidarBusqueda(KeyEvent event){
          String c=event.getCharacter();
-             
          if(rbIdProd.isSelected()){
-            if(!Character.isDigit(c.charAt(0))) 
-            { 
-            //  getToolkit().beep(); 
-               
-              event.consume(); 
-               
-              lblMensaje.setText("Ingresa Solo numeros"); 
-               lblMensaje.setVisible(true);
+            if(!Character.isDigit(c.charAt(0))){
+                event.consume();
+                lblMensaje.setText("Ingresa Solo numeros"); 
+                lblMensaje.setVisible(true);
                 setBanCon(true);
-            }else{lblMensaje.setVisible(false); lblMensaje.setText("");setBanCon(false); } 
-         }
-         else if(rbNombProd.isSelected()){
-               
-                if(!Character.isLetter(c.charAt(0))) 
-                { 
-              //getToolkit().beep(); 
-               
-              event.consume(); 
-                    setBanCon(true);
-              lblMensaje.setText("Ingresa Solo letras"); 
-              lblMensaje.setVisible(true);
-              } else {lblMensaje.setVisible(false); 
-                 lblMensaje.setText(""); setBanCon(false);}
-          }
+            }
+            else{
+                lblMensaje.setVisible(false); lblMensaje.setText("");setBanCon(false); 
+            } 
+        }
+        else if(rbNombProd.isSelected()){
+            if(!Character.isLetter(c.charAt(0))){ 
+                event.consume(); 
+                setBanCon(true);
+                lblMensaje.setText("Ingresa Solo letras"); 
+                lblMensaje.setVisible(true);
+            } 
+            else{
+                lblMensaje.setVisible(false); 
+                lblMensaje.setText(""); setBanCon(false);
+            }
+        }
     }
 
     /**
      * @return the banCon
      */
-    public boolean isBanCon() {
+    public boolean isBanCon(){
         return banCon;
     }
 
     /**
      * @param banCon the banCon to set
      */
-    public void setBanCon(boolean banCon) {
+    public void setBanCon(boolean banCon){
         this.banCon = banCon;
     }
 }

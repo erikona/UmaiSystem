@@ -24,9 +24,9 @@ import javafx.scene.input.KeyEvent;
 /**
  * FXML Controller class
  *
- * @author lalo
+ * @author 
  */
-public class AgregarComprasController implements Initializable {
+public class AgregarComprasController implements Initializable{
     @FXML
     private TextField txtFecha;
     @FXML
@@ -49,117 +49,104 @@ public class AgregarComprasController implements Initializable {
     private Button btnAgregarCompra;
     @FXML
     private TableView<?> tableCompras;
-
     private ListView<String> lstContenedorConsulta;
-     
-     private static final ObservableList data = 
-         FXCollections.observableArrayList();
-     
+    
+    private static final ObservableList data = 
+        FXCollections.observableArrayList();
     public static  ObservableList<?> list;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      txtNombreProveedor.textProperty().addListener(new ChangeListener<String>(){
-        
+        txtNombreProveedor.textProperty().addListener(new ChangeListener<String>(){
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("[^'\"]*")){
-                txtNombreProveedor.setText(newValue);
-            }
-            else
-            {
-                txtNombreProveedor.setText(oldValue);
-            }
+                if(newValue.matches("[^'\"]*")){
+                    txtNombreProveedor.setText(newValue);
+                }
+                else{
+                    txtNombreProveedor.setText(oldValue);
+                }
             }
         });
-      txtNombreProveedor.textProperty().addListener(new ChangeListener<String>(){
-        
+    
+        txtNombreProveedor.textProperty().addListener(new ChangeListener<String>(){
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("[A-Za-zÑñ]*(\\s?[A-Za-z]*)*") && txtNombreProveedor.getText().length()<30){
-                txtNombreProveedor.setText(newValue);
-            }
-            else
-            {
-                txtNombreProveedor.setText(oldValue);
-            }
+                if(newValue.matches("[A-Za-zÑñ]*(\\s?[A-Za-z]*)*") && txtNombreProveedor.getText().length()<30){
+                    txtNombreProveedor.setText(newValue);
+                }
+                else{
+                    txtNombreProveedor.setText(oldValue);
+                }
             }
         });
-      txtCant.textProperty().addListener(new ChangeListener<String>() {
 
-          @Override
-          public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-              if(newValue.matches("[0-9]*") && txtCant.getText().length()<10){
-                txtCant.setText(newValue);
-            }
-            else
-            {
-                txtCant.setText(oldValue);
-            }
-          }
-      });
-      txtNombreProducto.textProperty().addListener(new ChangeListener<String>(){
-        
+        txtCant.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("[A-Za-zÑñ]*(\\s?[A-Za-z]*)*") && txtNombreProducto.getText().length()<30){
-                txtNombreProducto.setText(newValue);
-            }
-            else
-            {
-                txtNombreProducto.setText(oldValue);
-            }
+                if(newValue.matches("[0-9]*") && txtCant.getText().length()<10){
+                    txtCant.setText(newValue);
+                }
+                else{
+                    txtCant.setText(oldValue);
+                }
             }
         });
-      txtPrecioUnitario.textProperty().addListener(new ChangeListener<String>(){
-        
+
+        txtNombreProducto.textProperty().addListener(new ChangeListener<String>(){
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-            if(newValue.matches("[0-9]*") && txtPrecioUnitario.getText().length()<10){
-                txtPrecioUnitario.setText(newValue);
-            }
-            else
-            {
-                txtPrecioUnitario.setText(oldValue);
-            }
+                if(newValue.matches("[A-Za-zÑñ]*(\\s?[A-Za-z]*)*") && txtNombreProducto.getText().length()<30){
+                    txtNombreProducto.setText(newValue);
+                }
+                else{
+                    txtNombreProducto.setText(oldValue);
+                }
             }
         });
-      
-      Calendar fecha = new GregorianCalendar();
-        //Obtenemos el valor del año, mes, día,
-        //hora, minuto y segundo del sistema
-        //usando el método get y el parámetro correspondiente
+
+        txtPrecioUnitario.textProperty().addListener(new ChangeListener<String>(){
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if(newValue.matches("[0-9]*") && txtPrecioUnitario.getText().length()<10){
+                    txtPrecioUnitario.setText(newValue);
+                }
+                else{
+                    txtPrecioUnitario.setText(oldValue);
+                }
+            }
+        });
+    
+        Calendar fecha = new GregorianCalendar();
         int año = fecha.get(Calendar.YEAR);
         int mes = fecha.get(Calendar.MONTH);
         int dia = fecha.get(Calendar.DAY_OF_MONTH);
         String fechaActual=dia+"/"+(mes+1) +"/"+año;
         txtFecha.setText(fechaActual);
-      
-      
     }    
-
+    
     @FXML
-    private void eventNombreProveedor(KeyEvent event) {
-        
+    private void eventNombreProveedor(KeyEvent event){
         
     }
 
     @FXML
-    private void eventNombreProducto(KeyEvent event) {
+    private void eventNombreProducto(KeyEvent event){
+        
     }
     
-    public ListView<?> getLstContenedorConsulta() {
-        
+    public ListView<?> getLstContenedorConsulta(){
         return lstContenedorConsulta;
-        
     }
+    
     public void setList(ObservableList listt){
         list=listt;
     }
+    
     public static ObservableList getData() {
         return data;
     }
-    
 }
